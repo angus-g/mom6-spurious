@@ -1,0 +1,8 @@
+*.swp
+MOM_parameter_doc.*
+exitcode
+*.out
+*.nc
+available_diags.000000
+ocean.stats
+CPU_stats

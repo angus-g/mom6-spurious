@@ -1,0 +1,72 @@
+REENTRANT_X = False
+! Y is our 2D dimension, but this shouldn't matter
+REENTRANT_Y = True
+NIHALO = 4
+NJHALO = 4
+
+! 64km long domain at 0.5km grid spacing
+NIGLOBAL = 128
+NJGLOBAL = 4
+! output on a single processor
+IO_LAYOUT = 1,1
+
+! 20 vertical levels (1m resolution)
+NK = 20
+BULKMIXEDLAYER = False
+DT = 120.0
+!DTBT = 20.0
+
+EQN_OF_STATE = "LINEAR"
+
+INPUTDIR = "."
+
+! we don't really care about the density coordinates for the moment
+COORD_CONFIG = "linear"
+
+GRID_CONFIG = "cartesian"
+AXIS_UNITS = "k"
+SOUTHLAT = 30.0
+LENLAT = 2.0
+LENLON = 64.0
+TOPO_CONFIG = "flat"
+
+MAXIMUM_DEPTH = 20.0
+! no rotation, (f0 and beta default to 0)
+ROTATION = "betaplane"
+! init thickness from ALE coord
+THICKNESS_CONFIG = "coord"
+TS_CONFIG = "file"
+TS_FILE = "input.nc"
+TEMP_IC_VAR = "temp"
+SALT_IC_VAR = "salt"
+
+S_REF = 35.0
+T_REF = 10.0
+
+CDRAG = 0.0
+HBBL = 10.0
+HMIX_FIXED = 20.0
+
+! only laplacian drag, we'll set KH per-experiment
+BIHARMONIC = False
+LAPLACIAN = True
+
+KV = 1.0E-04
+KVML = 0.0
+MAXVEL = 20.0
+
+KD = 0.0
+
+CORRECT_DENSITY = False
+BUOY_CONFIG = "zero"
+WIND_CONFIG = "zero"
+
+MAXTRUNC = 10
+TIMEUNIT = 3600.0
+ENERGYSAVEDAYS = 1.0
+RESTART_CONTROL = -1
+
+USE_REGRIDDING = True
+REGRIDDING_COORDINATE_MODE = "Z*"
+ALE_COORDINATE_CONFIG = "UNIFORM"
+REMAPPING_SCHEME = "PQM_IH4IH3"

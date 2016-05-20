@@ -1,0 +1,81 @@
+REENTRANT_X = True
+REENTRANT_Y = False
+NIHALO = 4
+NJHALO = 4
+
+! 160km wide domain at 4km spacing
+NIGLOBAL = 40
+! 500km long domain at 4km spacing
+NJGLOBAL = 125
+! output on a single processor
+IO_LAYOUT = 1,1
+
+! 20 vertical levels (50m resolution)
+NK = 20
+BULKMIXEDLAYER = False
+!DT = 120.0
+DT = 1800.0
+
+EQN_OF_STATE = "LINEAR"
+! set equation of state to match MPAS values
+RHO_0 = 1001.0
+DRHO_DS = 0.0
+
+INPUTDIR = "."
+
+! we don't really care about the density coordinates for the moment
+COORD_CONFIG = "ts_range"
+TS_RANGE_T_LIGHT = 13.1
+TS_RANGE_T_DENSE = 8.9
+
+GRID_CONFIG = "cartesian"
+AXIS_UNITS = "k"
+SOUTHLAT = 30.0
+LENLAT = 500.0
+LENLON = 160.0
+TOPO_CONFIG = "flat"
+
+MAXIMUM_DEPTH = 1000.0
+! no rotation, (f0 and beta default to 0)
+ROTATION = "betaplane"
+F_0 = -1.2E-04
+! init thickness from ALE coord
+THICKNESS_CONFIG = "coord"
+TS_CONFIG = "file"
+TS_FILE = "input.nc"
+TEMP_IC_VAR = "temp"
+SALT_IC_VAR = "salt"
+
+S_REF = 35.0
+T_REF = 10.0
+
+HBBL = 10.0
+HMIX_FIXED = 20.0
+CDRAG = 0.01
+BBL_EFFIC = 0.0
+
+! only laplacian drag, we'll set KH per-experiment
+BIHARMONIC = False
+LAPLACIAN = True
+BOUND_KH = False
+
+KV = 1.0E-04
+KVML = 0.0
+MAXVEL = 20.0
+
+KD = 0.0
+KD_SMOOTH = 0.0
+
+CORRECT_DENSITY = False
+BUOY_CONFIG = "zero"
+WIND_CONFIG = "zero"
+
+MAXTRUNC = 10
+TIMEUNIT = 3600.0
+ENERGYSAVEDAYS = 1.0
+RESTART_CONTROL = -1
+
+USE_REGRIDDING = True
+REGRIDDING_COORDINATE_MODE = "Z*"
+ALE_COORDINATE_CONFIG = "UNIFORM"
+REMAPPING_SCHEME = "PQM_IH4IH3"

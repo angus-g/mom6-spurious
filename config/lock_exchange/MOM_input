@@ -14,7 +14,6 @@ IO_LAYOUT = 1,1
 NK = 20
 BULKMIXEDLAYER = False
 DT = 120.0
-!DTBT = 20.0
 
 EQN_OF_STATE = "LINEAR"
 
@@ -34,7 +33,7 @@ MAXIMUM_DEPTH = 20.0
 ! no rotation, (f0 and beta default to 0)
 ROTATION = "betaplane"
 ! init thickness from ALE coord
-THICKNESS_CONFIG = "coord"
+THICKNESS_CONFIG = "uniform"
 TS_CONFIG = "file"
 TS_FILE = "input.nc"
 TEMP_IC_VAR = "temp"
@@ -56,6 +55,7 @@ KVML = 0.0
 MAXVEL = 20.0
 
 KD = 0.0
+KD_MAX = 0.0
 
 CORRECT_DENSITY = False
 BUOY_CONFIG = "zero"

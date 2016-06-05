@@ -1,0 +1,73 @@
+! number of halo points surrounding a node's domain
+NIHALO = 4
+NJHALO = 4
+
+! output on a single processor
+IO_LAYOUT = 1,1
+
+! input from the current directory
+INPUTDIR = "."
+
+! don't use a bulk mixed layer scheme
+BULKMIXEDLAYER = False
+
+! linear equation of state
+EQN_OF_STATE = "LINEAR"
+RHO_T0_S0 = 1001.0
+! varying only with temperature
+DRHO_DS = 0.0
+
+! initialise temperature from file
+TS_CONFIG = "file"
+TS_FILE = "input.nc"
+TEMP_IC_VAR = "temp"
+SALT_IC_VAR = "salt"
+
+! reference temperature and salinity
+T_REF = 10.0
+S_REF = 35.0
+
+! ALE config
+USE_REGRIDDING = True
+REGRIDDING_COORDINATE_MODE = "Z*"
+ALE_COORDINATE_CONFIG = "UNIFORM"
+REMAPPING_SCHEME = "PQM_IH4IH3"
+
+! layers follow ALE coordinate
+THICKNESS_CONFIG = "coord"
+
+! default density coordinates; we don't use them
+COORD_CONFIG = "linear"
+
+! Laplacian horizontal viscosity
+BIHARMONIC = False
+LAPLACIAN = True
+
+! beta plane rotation (default irrotational)
+ROTATION = "betaplane"
+
+! fixed vertical viscosity with no diffusivity
+KV = 1.0E-04
+KVML = 0.0
+KD = 0.0
+KD_MAX = 0.0
+
+! bottom boundary layer
+HBBL = 10.0
+HMIX_FIXED = 20.0
+
+! don't correct layers toward their density coords
+! (maybe no effect)
+CORRECT_DENSITY = False
+
+! unforced by buoyancy or mechanically
+BUOY_CONFIG = "zero"
+WIND_CONFIG = "zero"
+
+! velocity truncations
+MAXVEL = 20.0
+MAXTRUNC = 10
+
+! time control
+ENERGYSAVEDAYS = 1.0
+RESTART_CONTROL = -1

@@ -1,8 +1,13 @@
 import numpy as np
 import xarray as xr
+import sys
 
-# grid spacing
-dx = 4e3
+# get grid argument from second argument
+if len(sys.argv) < 3:
+  dx = 4e3
+else:
+  dx = 1e3 * int(sys.argv[2])
+
 # total grid size
 xl = 160e3
 yl = 500e3
@@ -46,4 +51,7 @@ ds['temp'] += tp * ((x2 <= ds.x) & (ds.x <= x3) & (ywp - dy/2 <= ds.y) & (ds.y <
 
 ds['salt'] = 35 + 0*ds.z + 0*ds.y + 0*ds.x
 
-ds.to_netcdf('input.nc')
+if len(sys.argv) < 2:
+  ds.to_netcdf('input.nc')
+else:
+  ds.to_netcdf(sys.argv[1])

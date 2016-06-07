@@ -1,0 +1,13 @@
+"Baroclinic eddies"
+1 1 1 0 0 0
+"prog",6,"hours",1,"days","Time"
+"prog_z",6,"hours",1,"days","Time"
+
+"ocean_model_z","temp","temp","prog_z","all",.false.,"none",2
+"ocean_model_z","h",   "h",   "prog_z","all",.false.,"none",1
+
+#"ocean_model","T_preale","T_preale","prog","all",.false.,"none",2
+#"ocean_model","h_preale","h_preale","prog","all",.false.,"none",1
+
+"ocean_model","T_postale","T_postale","prog","all",.false.,"none",2
+"ocean_model","h_postale","h_postale","prog","all",.false.,"none",1

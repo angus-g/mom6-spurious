@@ -28,3 +28,9 @@ BBL_EFFIC = 0.0
 ! time control
 DT = 1800.0
 TIMEUNIT = 86400.0
+
+! define density range for RHO coordinates
+! from T=13.1 to 8.9 over 20 layers = 0.21 deg/layer
+#override COORD_CONFIG = "ts_range"
+TS_RANGE_T_LIGHT = 13.1
+TS_RANGE_T_DENSE = 8.9

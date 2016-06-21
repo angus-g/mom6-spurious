@@ -1,6 +1,6 @@
 "Overflow"
 1 1 1 0 0 0
-"prog",1,"hours",1,"hours","Time",
+"prog",30,"minutes",1,"hours","Time",
 
 #"ocean_model","temp","temp","prog","all",.false.,"none",2
 #"ocean_model","h","h","prog","all",.false.,"none",1

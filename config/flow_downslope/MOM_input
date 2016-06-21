@@ -26,5 +26,5 @@ BOTTOMDRAGLAW = False
 CDRAG = 0.0
 
 ! time control
-DT = 40.0
+DT = 5.0
 TIMEUNIT = 3600.0

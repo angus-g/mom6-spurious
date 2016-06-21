@@ -23,6 +23,6 @@
   date_init = 1,1,1,0,0,0
   calendar = 'julian' /
 
-&mpp_io_nml
-  deflate_level = 5,
-  shuffle = 1 /
+!&mpp_io_nml
+!  deflate_level = 5,
+!  shuffle = 1 /

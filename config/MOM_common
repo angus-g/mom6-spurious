@@ -49,6 +49,7 @@ ROTATION = "betaplane"
 ! fixed vertical viscosity with no diffusivity
 KV = 1.0E-04
 KVML = 0.0
+KVBBL = 0.0
 KD = 0.0
 KD_MAX = 0.0
 

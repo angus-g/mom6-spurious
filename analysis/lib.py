@@ -45,7 +45,7 @@ def calc_rpe(d, suffix='postale', step=None, var=None):
     r = range(nt)
     step = 1
   else:
-    rpe = np.zeros(nt / step)
+    rpe = np.zeros(int(nt / step))
     r = range(0, nt, step)
 
   # process RPE for each timestep that we want
@@ -62,7 +62,7 @@ def calc_rpe(d, suffix='postale', step=None, var=None):
     rho = rho_0 + drho_dt * t[indices]
 
     # scale by basin area
-    rpe[k / step] = 9.8 * np.sum(rho * h[indices] * cell_area * z_lay) / basin_area
+    rpe[int(k / step)] = 9.8 * np.sum(rho * h[indices] * cell_area * z_lay) / basin_area
 
   return rpe
 
@@ -97,7 +97,9 @@ def drpe_dt(f):
   rpe = calc_rpe(d)
   tv = d.variables['Time']
   time = tv[:]
-  if 'hours' in tv.units:
+  if 'minutes' in tv.units:
+    time *= 60
+  elif 'hours' in tv.units:
     time *= 3600
   elif 'days' in tv.units:
     time *= 24 * 3600
@@ -119,7 +121,9 @@ def drpe_dt_split(f):
   rpe_post = calc_rpe(d, 'postale')
   tv = d.variables['Time']
   time = tv[:]
-  if 'hours' in tv.units:
+  if 'minutes' in tv.units:
+    time *= 60
+  elif 'hours' in tv.units:
     time *= 3600
   elif 'days' in tv.units:
     time *= 24 * 3600

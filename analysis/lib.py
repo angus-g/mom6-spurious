@@ -193,7 +193,7 @@ def drpe_dt_split(f):
 
   return drpe_horiz, drpe_vert
 
-def rpe_norm(f, step=100, split=True):
+def rpe_norm(f, step=100, split=True, ft=None, norm=True):
   """
   Calculate the normalised RPE evolution of the form rpenorm = (rpe -
   rpe(0)) / rpe(0) If split is True, we assume the split state variables
@@ -208,8 +208,12 @@ def rpe_norm(f, step=100, split=True):
   else:
     v = None
 
-  rpe = calc_rpe(d, step=step, var=v)
-  rpe = (rpe - rpe[0]) / rpe[0]
+  if ft is not None:
+    ft = Dataset(ft, 'r')
+
+  rpe = calc_rpe(d, step=step, var=v, topod=ft)
+  if norm:
+    rpe = (rpe - rpe[0]) / rpe[0]
   time = d.variables['Time'][::step]
   d.close()
 

@@ -18,6 +18,10 @@ All runs were carried out using a baroclinic timestep that satisfied CFL conditi
 
 ![](plots/lock_exchange_drpe.png)
 
+### Advection order
+
+Another consideration is the order of accuracy of the tracer advection scheme in use by the model. A higher-order advection scheme purports to reduce the spurious mixing in advection, at the cost of runtime performance. Curiously, the two advection schemes in MOM6, PLM and PPM:H3, exhibit nearly identical spurious mixing. This is usually indicative of advection being dominated by a limiter. In order to preserve the pre-existing range of density classes by avoiding the creation of spurious minima or maxima, advection schemes may employ limiters. In the case of MOM6, the limiting scheme reduces to a first-order upstream method. Since the difference in the spurious mixing between the piecewise linear and higher order cases is so minimal, it's likely that any time the advection scheme is contributing to spurious mixing, it's doing so through an operation in which the limiter is active. In other words, advection at the front is dominating.
+
 ### Directional split
 
 We can analyse the contribution to RPE by purely horizontal (advective) and purely vertical (remapping) operations. This is very noisy, as we must take the differences in RPE at multiple points along a single timestep -- we're taking small differences and dividing them by a small differential time, which may have poor precision.
@@ -26,7 +30,6 @@ For the lock exchange experiment, we consider that the potential for spurious mi
 
 We can see that the mixing is predominantly due to horizontal processes. Indeed, for the majority of experiments, the average RPE change due to remapping is actually negative. Physically, this means that the remapping tends to restratify the domain, sharpening density gradients rather than reducing them by mixing.
 
+![](plots/lock_exchange_drpe_split.png)
 
-### Advection order
-
-Another consideration is the order of accuracy of the tracer advection scheme in use by the model. A higher-order advection scheme purports to reduce the spurious mixing in advection, at the cost of runtime performance. Curiously, the advection schemes in MOM6 that are higher order than PCM performs very similarly to one another. This is usually indicative of advection being dominated by a limiter. In order to preserve the pre-existing range of density classes by avoiding the creation of spurious minima or maxima, advection schemes may employ limiters. In the case of MOM6, the limiting scheme reduces to a first-order upstream method. Since the difference in the spurious mixing between the piecewise linear and higher order cases is so minimal, it's likely that any time the advection scheme is contributing to spurious mixing, it's doing so through an operation in which the limiter is active. In other words, advection at the front is dominating.
+### Negative RPE Schematic

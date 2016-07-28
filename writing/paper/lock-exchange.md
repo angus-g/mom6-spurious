@@ -1,22 +1,22 @@
 ## Lock Exchange
 
-The lock exchange is a very simple configuration that we can use to measure mixing. It's defined by an initial temperature distribution,
+The lock exchange is a simple experiment configuration that shows the creation of intermediate densities by spurious mixing. It's defined by an initial temperature distribution, providing one density class on each side of the domain,
 
 $$\Theta(x) = \begin{cases}
 5 & x < 32\text{ km}\\
 30 & x \ge 32\text{ km}\end{cases}.$$
 
-This case is equivalent to two adjacent basins, each at constant temperature, with a dam between them removed instantaneously at the beginning of simulation. The warm water from the right basin flows from right-to-left above cold water, and conversely cold water from the left basin flows underneath the warm water from left-to-right. This is simply a gravity current, for which we know the front velocity in a rectangular channel is given by
+This case is equivalent to two adjacent basins, each at constant temperature, with a dam between them removed instantaneously at $T=0$. The warm water from the right basin flows from right-to-left above cold water, while conversely cold water from the left basin flows underneath the warm water from left-to-right. This is simply a gravity current, for which we know the front velocity in a rectangular channel is given by
 
 $$u_f = \frac12 \sqrt{gH (\partial \rho / \rho_0)}$$
 
-![](plots/lock_exchange_rpe_norm.png)
+When calculating the grid Reynolds number, the theoretical front velocity is used instead of the actual mean velocity of the domain. All runs were carried out using a baroclinic timestep that satisfied CFL conditions across the range of horizontal viscosities ($\nu_h = 0.01, 0.1, 1, 10, 100, 1000$).
 
-When calculating the grid Reynolds number, the theoretical front velocity is used instead of the actual mean velocity of the domain.
+![\label{fig:rpenorm} Figure 1a](plots/lock_exchange_rpe_norm.png)
 
-All runs were carried out using a baroclinic timestep that satisfied CFL conditions across the range of horizontal viscosities.
+![\label{fig:drpe} Figure 1b](plots/lock_exchange_drpe.png)
 
-![](plots/lock_exchange_drpe.png)
+The normalised RPE time series in \ref{fig:rpenorm} shows MOM6 having a similar evolution to MitGCM and MOM5. However, the average rate of change of RPE shown in \ref{fig:drpe} is slightly lower (i.e. smaller spurious component) in MOM6 than the other models.
 
 ### Advection order
 

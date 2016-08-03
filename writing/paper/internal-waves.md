@@ -24,10 +24,11 @@ Using the z-tilde vertical coordinate provides a significant improvement in the 
 
 ![\label{fig:tildesplit} Directional split for z-tilde vertical coordinate](plots/internal_waves_tilde_split.png)
 
-### Points to make
+### *Points to make*
 - Section introduction (motivation?)
 - Low grid Reynolds number behaviour (not a flat distribution as seen in other models)
 - Significant improvement using z-tilde
 - Crossing of vertical/horizontal at low grid Reynolds number
 - Strongly negative dRPE/dt when using z-tilde
 - Implementation of z-tilde in MOM6
+- Poor behaviour of PLM remapping? -- importance of sufficiently high-order remapping scheme

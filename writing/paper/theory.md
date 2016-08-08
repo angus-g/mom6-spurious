@@ -16,8 +16,9 @@ However, spurious mixing changes this story (*weak statement*). Assuming a limit
 
 ## Splitting up contributions (*better subsection heading*)
 
+- "which is the new bit"
+- explain how horizontal vs. vertical might be important (stratification vs. nonlinear EOS, for example?)
+
 In many models, there's a distinction between the horizontal (along-coordinate) and vertical dynamics. This is particularly the case in models with a generalised vertical coordinate, such as those employing the ALE algorithm. Taking advantage of this distinction, we can diagnose the RPE at multiple points during a single timestep. In combination with knowledge about the structure of the timestep itself, this allows us to attribute an increase in RPE to a specific section of code, concerning either horizontal or vertical dynamics.
 
 The RPE contributions must be carefully calculated so that they include only information from relevant portions of a single timestep. This means that the increases in RPE may be small, from slight changes in density or fluid parcel volume. Diagnosing an instantaneous rate of change of RPE within a timestep may then involve dividing a small change in RPE by a short delta time, an operation that may be imprecise in floating-point arithmetic. We must ensure that sufficient samples are taken to give a significant result.
-
-## ALE (regridding/remapping) (?)

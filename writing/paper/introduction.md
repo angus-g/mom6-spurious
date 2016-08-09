@@ -1,24 +1,18 @@
 # Introduction
 
-- subsections are temporary
-
 One of the myriad uses of ocean models is in developing ocean heat uptake estimates and overturning circulation predictions. Additionally, the overturning circulation itself affects the wider climate, which manifests when ocean models are used as a component of coupled climate simulations. The problems of ocean heat uptake and overturning circulation are both strongly defined by the density structure of the ocean, which is modified by mixing. For example, mixing at depth controls the abyssal overturning cell that constitutes part of the meridional overturning circulation (Mashayek et al., 2015).
 
 - expand point, since without mixing there is no abyssal overturning
 
 Models are unable to accurately constrain the abyssal overturning as the magnitude of diapycnal mixing cannot be completely controlled.
 
-- opening sentence isn't great
-- we want to use models for ocean heat uptake estimates and overturning circulation predictions -- example studies?
-- more examples of effects of mixing on actual circulation?
+- focus on overturning and its implications for climate
+    - mention heat + CO2 uptake associated with overturning, and the crucial role of mixing
 
 ## Spurious mixing
 
-- define mixing, i.e. a flux acting on tracer gradients
+Mixing is a flux acting to flatten tracer gradients. In ocean models, mixing has two main sources, physical and numerical. Physical mixing is the diffusion of tracers, with a diffusivity that may be influenced by various parameterisations. On the other hand, numerical mixing arises from the discretisations and algorithms used by the ocean model in implementing the governing equations. Numerical mixing is also known as spurious mixing and doesn't have any physical basis.
 
-Mixing in ocean models has two main sources, physical and numerical. ~~Physical mixing often comes through a cross-coordinate diffusion~~, with a diffusivity that may be set by various parameterisations. On the other hand, numerical mixing arises from the discretisations and algorithms used by the ocean model in implementing the governing equations. Numerical mixing is also known as spurious mixing and doesn't have any physical basis.
-
-- cross-coordinate diffusion -> clearer wording
 - perhaps specific parameterised/numerical mixing examples?
     - simple diagram
 - typical estimates, how significant is the mixing?
@@ -30,10 +24,9 @@ Spurious mixing is undesirable in ocean models, due to its unphysical nature, an
 
 One of the considerations in model development and configuration is then to ensure spurious mixing is minimised.
 
-- this whole paragraph feels a little floppy; has the right points (hopefully), but not the right words
-- perhaps cite Waterhouse DIMES stuff?
-
 ## Advection schemes
+
+The magnitude of spurious mixing is strongly controlled by the choice of advection scheme.
 
 - define advection scheme, flux limiter
 
@@ -43,12 +36,12 @@ Ocean models are often hydrostatic, with no explicitly resolved vertical coordin
 
 Much of the focus in reducing spurious mixing has therefore been on horizontal advection, through improving numerical accuracy or the model's subgrid scale representations. Some argue that a high-order advection scheme is sufficient to reduce the spurious mixing to acceptable levels (MitGCM 7th order; Daru & Tenaud, 2004). This is simply a matter of using a sufficiently high-order polynomial reconstruction to try to capture the overall structure. Other advection schemes attempt to preserve the subgrid scale representation of a given field (SOM; Prather, 1986). By carrying information about both first and second-order moments, the model is able to exactly reconstruct a field to second order. The second-order moment scheme has the issue that it must often be used in conjunction with a flux limiter to enusre against the creation of spurious minima and maxima, which in essence reduces back to a first-order advection scheme.
 
-- this doesn't really link to the previous paragraph, it's a bit abrupt
-    - "The magnitude of spurious mixing is strongly controlled by the choice of advection scheme"
 - "some argue" is poor, but I don't know who Andy was talking about - maybe Prather?
 
 ## ALE, the choice of vertical coordinate
-Furthermore, with an open choice of vertical coordinate, it's not clear which is the ideal choice for a specific class of modelling. Some example vertical coordinates are z-tilde (Leclair & Madec, 2011), a modification of the common z-star coordinate; the HyCOM coordinate, which adapts different coordinate schemes depending on location (Bleck, 2002); and adaptive terrain-following coordinates (Hofmeister et al., 2010).
+Furthermore, with an open choice of vertical coordinate, it's not clear which is the ideal choice for a specific class of modelling. The terrain-following sigma coordinate is often used for coastal modelling, but may present issues with pressure gradient calculation due to strongly sloping coordinate surfaces. To keep the advantages of a terrain-following coordinate, but reduce pressure gradient errors and spurious mixing, Hofmeister et al. (2010) formulated an adaptive terrain-following grid. Vertical layer positions are modified through a vertical diffusion proportional to shear, stratification and distance from boundaries, whereas the grid is smoothed in the horizontal. Another adaptive vertical grid is z-tilde (Leclair & Madec, 2011), which has Lagrangian behaviour to motions on short timescales, but relaxes to a target grid over long timescales to prevent the grid from drifting. This is good for allowing the propagation of internal gravity waves. A final example in the grid used by the HyCOM model (Bleck, 2002), which adapts different coordinates depending on location, such as terrain-following near boundaries, or isopycnal at depth. In isolation, these coordinates aren't sufficient for ocean modelling, but the combination attempts to preserve the strengths of each.
+
+- decide on "grid" vs. "coordinate"
 
 Another complication in recent models is ALE (arbitrary Lagrangian-Eulerian, *citation*?), which allows the use of a generalised vertical coordinate.
 
@@ -60,11 +53,10 @@ Another complication in recent models is ALE (arbitrary Lagrangian-Eulerian, *ci
 
 White & Adcroft (2008) demonstrated the development and implementation of an accurate reconstruction scheme for the remapping stage of ALE, with their piecewise quartic method (PQM). The impacts of different regridding and remapping schemes were considered by White et al. (2009), comparing their spurious diffusion in terms of the change of volume distributions across density classes.
 
-- does this need more expansion?
-    - an example of typical/optimal uses for each coordinate
-
 ## Evaluating/diagnosing spurious mixing
-In attempting to evaluate the performance of numerical schemes with regard to spurious mixing, there is no consensus on the diagnostic technique to use. Griffies et al. (2000) used an effective diapycnal diffusivity, which allows for direct comparison between the spurious mixing and expected oceanic values. However, because it uses a reference density profile compiled from the entire domain, the effective diffusivity is only a single idealised vertical profile, and can't be mapped back to real space in any meaningful manner. An alternative to diagnosing spurious mixing from the model state is to calculate an analytical solution from the advection operator itself. Morales Maqueda & Holloway (2006) did this with upstream based schemes, such as the second-order moment method of Prather, calculating a closed form expression for the implicit numerical diffusivity.
+In attempting to evaluate the performance of numerical schemes with regard to spurious mixing, there is no consensus on the diagnostic technique to use. Griffies et al. (2000) used an effective diapycnal diffusivity, which allows for direct comparison between the spurious mixing and expected oceanic values. However, because it uses a reference density profile compiled from the entire domain, the effective diffusivity is only a single idealised vertical profile, and can't be mapped back to real space in any meaningful manner.
+
+An alternative to diagnosing spurious mixing from the model state is to calculate an analytical solution from the advection operator itself. Morales Maqueda & Holloway (2006) did this with upstream based schemes, such as the second-order moment method of Prather, calculating a closed form expression for the implicit numerical diffusivity.
 
 - one paragraph per diagnostic scheme
 

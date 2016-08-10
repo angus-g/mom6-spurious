@@ -20,7 +20,7 @@ When calculating the grid Reynolds number, the theoretical front velocity is use
 
 ![\label{fig:drpe} Average rate of RPE change](plots/lock_exchange_drpe.png)
 
-> The normalised RPE time series in Figure \ref{fig:rpenorm} shows MOM6 having a similar shape to MitGCM and MOM5, however the normalisation is calculated based on the state after the first timestep. If MOM6 has a lower RPE in the first diagnosed timestep than the other models, this will appear as more spurious mixing than it might otherwise be. I need to normalise by the initial condition here!
+The time series of normalised RPE in Figure \ref{fig:rpenorm} shows MOM6 having a similar shape to MitGCM and MOM5. Curiously, it appears as though the magnitude of RPE is higher in MOM6 than the other models, contradicting the result shown in Figure \ref{fig:drpe}. One possible explanation is that the RPE of the initial state by which MOM6 is normalised is less than that of the other models. However, the RPE rate of change calculation uses the non-normalised RPE and shows the true behaviour.
 
 Below a grid Reynolds number of 10, MOM6 performs very similarly to the other models shown in Figure \ref{fig:drpe}. At this point, the models are running under the threshold for saturation of spurious mixing. However, in the limit of saturated spurious mixing, MOM6 exhibits a slightly lower averaged RPE rate of change. This suggests that MOM6 may tolerate a lower viscosity than other models of the same class.
 
@@ -36,6 +36,6 @@ Figure \ref{fig:rpesplit} shows that the mixing is predominantly due to horizont
 
 From a physical viewpoint, we expect RPE to be an increasing quantity. However, Figure \ref{fig:rpesplit} shows that the vertical process of regridding/remapping causes a small RPE decrease in these experiments. We illustrate a simple example that demonstrates how the combination of regridding/remapping may create a decrease in total potential energy. For a single column case, this is equivalent to the RPE, assuming no density inversions.
 
-![Placeholder schematic](plots/schematic.png)
+![A schematic demonstrating the ability for regridding/remapping to cause a decrease in RPE](plots/schematic.png)
 
 The solid rectangles show the grid cells after advection, where the column bottom is at $z = 0$. Regridding moves the interface between the cells to the dashed line, and remapping mixes the quantity $u'$ from the right cell to the left cell. With the condition that $u_1 > u_2$ (stable stratification), it is possible for $PE_f - PE_i < 0$ when the remapping is higher order than piecewise constant (PCM). PCM is the lowest order reconstruction, and gives $u' = u_1 \Delta h$, thus $PE_f - PE_i \ge 0$.

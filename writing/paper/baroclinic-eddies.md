@@ -31,6 +31,8 @@ When the horizontal resolution is decreased to 4km, MOM6 exhibits slighly greate
 
 ![\label{fig:drpe_1} RPE rate of change at 1km resolution](plots/eddies_drpe_1.png)
 
-![\label{fig:split_10} Spurious mixing orientation at 10km resulotion](plots/eddies_drpe_split_10.png)
+![\label{fig:split_10} Spurious mixing orientation at 10km resolution](plots/eddies_drpe_split_10.png)
 
-![\label{fig:split_4} Spurious mixing orientation at 4km resulotion](plots/eddies_drpe_split_4.png)
+![\label{fig:split_4} Spurious mixing orientation at 4km resolution](plots/eddies_drpe_split_4.png)
+
+![\label{fig:split_1} Spurious mixing orientation at 1km resolution](plots/eddies_drpe_split_1.png)

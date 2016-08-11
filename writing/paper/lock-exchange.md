@@ -4,10 +4,9 @@ classoption: twocolumn
 
 ## Lock Exchange
 
-- explain that this is replicating test cases/parameters of Ilicak
 - specify spatial dimensions, run duration, resolution
 
-The lock exchange test case is a simple configuration that shows the creation of intermediate densities by spurious mixing. It is defined by an initial temperature distribution comprised of one density class on each side of the domain,
+The lock exchange test case is a simple configuration that shows the creation of intermediate densities by spurious mixing. This is a replication of one of the test cases presented by Ilicak et al. (2012). The test case takes place in a two-dimensional domain of 64km width and 20m depth. Only the highest resolution test cases from Ilicak et al. (2012) are chosen, with horizontal and vertical grid spacings of $\Delta x = 500\,\mathrm{m}$ and $\Delta z = 1\,\mathrm{m}$, respectively. The lock exchange is defined by an initial temperature distribution comprised of one density class on each side of the domain,
 
 $$\Theta(x) = \begin{cases}
 5 & x < 32\text{ km}\\
@@ -23,13 +22,9 @@ When calculating the grid Reynolds number, the theoretical front velocity is use
 
 ![\label{fig:drpe} RPE change at 17h](plots/lock_exchange_drpe.png)
 
-The time series of normalised RPE in Figure \ref{fig:rpenorm} shows MOM6 having a similar shape to MitGCM and MOM5. Curiously, it appears as though the magnitude of RPE is higher in MOM6 than the other models, contradicting the result shown in Figure \ref{fig:drpe}. One possible explanation is that the RPE of the initial state by which MOM6 is normalised is less than that of the other models. However, the RPE rate of change calculation uses the non-normalised RPE and shows the true behaviour.
+The time series of normalised RPE in Figure \ref{fig:rpenorm} shows MOM6 having a similar shape to MitGCM and MOM5. However, the curve steepens with time, suggesting that more spurious mixing is occurring in MOM6.
 
-- possibly easy hypothesis to check
-
-Below a grid Reynolds number of 10, MOM6 performs very similarly to the other models shown in Figure \ref{fig:drpe}. At this point, the models are running under the threshold for saturation of spurious mixing. However, in the limit of saturated spurious mixing, MOM6 exhibits a slightly lower averaged RPE rate of change. This suggests that MOM6 may tolerate a lower viscosity than other models of the same class.
-
-- talk about mixing saturation earlier
+Above a grid Reynolds number of 10, MOM6 performs similarly to the other models shown in Figure \ref{fig:drpe}. At this point, the models are running above the threshold for saturation of spurious mixing. However, in the regime where spurious mixing isn't saturated, MOM6 exhibits a somewhat higher RPE rate of change. This suggests that spurious mixing in MOM6 is due to tracer advection, as viscosity is sufficient to damp grid-scale noise in the velocity field.
 
 ### Advection order
 

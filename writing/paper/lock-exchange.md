@@ -4,9 +4,9 @@ classoption: twocolumn
 
 ## Lock Exchange
 
-- specify spatial dimensions, run duration, resolution
+The lock exchange test case is a simple configuration that shows the creation of intermediate densities by spurious mixing. This is a replication of one of the test cases presented by Ilicak et al. (2012). The test case takes place in a two-dimensional domain of 64km width and 20m depth. Only the highest resolution test cases are chosen, with horizontal and vertical grid spacings of $\Delta x = 500\,\mathrm{m}$ and $\Delta z = 1\,\mathrm{m}$, respectively. The lock exchange is defined by an initial temperature distribution comprised of one density class on each side of the domain,
 
-The lock exchange test case is a simple configuration that shows the creation of intermediate densities by spurious mixing. This is a replication of one of the test cases presented by Ilicak et al. (2012). The test case takes place in a two-dimensional domain of 64km width and 20m depth. Only the highest resolution test cases from Ilicak et al. (2012) are chosen, with horizontal and vertical grid spacings of $\Delta x = 500\,\mathrm{m}$ and $\Delta z = 1\,\mathrm{m}$, respectively. The lock exchange is defined by an initial temperature distribution comprised of one density class on each side of the domain,
+![\label{fig:snapshot} Snapshot of lock exchange after 17 hours at $\nu_h = 0.01\,\mathrm{m}^2\,\mathrm{s}^{-1}$](plots/lock_exchange_snapshot_0.01.png)
 
 $$\Theta(x) = \begin{cases}
 5 & x < 32\text{ km}\\
@@ -16,7 +16,7 @@ This case is equivalent to two adjacent basins, each at constant temperature, wi
 
 $$u_f = \frac12 \sqrt{gH \rho'}$$
 
-When calculating the grid Reynolds number, the theoretical front velocity is used instead of the actual mean velocity over the domain. All runs were carried out using a baroclinic timestep that satisfied CFL conditions across the range of horizontal viscosities ($\nu_h = 0.01, 0.1, 1, 10, 100, 200\,\text{m}^2\text{s}^{-1}$).
+When calculating the grid Reynolds number, the theoretical front velocity is used instead of the actual mean velocity over the domain. All runs were carried out for 17 hours using a baroclinic timestep that satisfied CFL conditions across the range of horizontal viscosities ($\nu_h = 0.01, 0.1, 1, 10, 100, 200\,\text{m}^2\text{s}^{-1}$).
 
 ![\label{fig:rpenorm} Normalised RPE evolution for $\nu_h = 0.01$](plots/lock_exchange_rpe_norm.png)
 
@@ -38,8 +38,18 @@ Figure \ref{fig:rpesplit} shows that the mixing is predominantly due to horizont
 
 From a physical viewpoint, we expect RPE to be an increasing quantity. However, Figure \ref{fig:rpesplit} shows that the vertical process of regridding/remapping causes a small RPE decrease in these experiments. We illustrate a simple example that demonstrates how the combination of regridding/remapping may create a decrease in total potential energy. For a single column case, this is equivalent to the RPE, assuming no density inversions.
 
-![A schematic demonstrating the ability for regridding/remapping to cause a decrease in RPE](plots/schematic.png)
+![\label{fig:schematic} A schematic demonstrating the ability for regridding/remapping to cause a decrease in RPE](plots/schematic.png)
 
-- rotate to vertical
+Figure \ref{fig:schematic} shows a simple two-cell domain under regridding/remapping. The bottom cell has a mean tracer concentration of $\phi_1$ and thickness $h_1$. Similarly, the top cell has a mean tracer concentration of $\phi_2$ and thickness $h_2$. Regridding moves the interface between the cells from its initial position at $z = h_1$ to the dashed line at $z = h_1 - \Delta h$, and remapping mixes the integrated quantity of tracer $\phi'$ from the right cell to the left cell. Initially, the potential energy of the domain is
 
-The solid rectangles show the grid cells after advection, where the column bottom is at $z = 0$. Regridding moves the interface between the cells to the dashed line, and remapping mixes the quantity $u'$ from the right cell to the left cell. With the condition that $u_1 > u_2$ (stable stratification), it is possible for $PE_f - PE_i < 0$ when the remapping is higher order than piecewise constant (PCM). PCM is the lowest order reconstruction, and gives $u' = u_1 \Delta h$, thus $PE_f - PE_i \ge 0$.
+$$PE_i = \frac{\phi_1 h_1 h_1}{2} + \phi_2 h_2\left(h_1 + \frac{h_2}{2}\right).$$
+
+After remapping, the potential energy becomes
+
+$$PE_f = \left(\phi_1 h_1 - \phi'\right)\frac{h_1 - \Delta h}{2} + \left(\phi' + \phi_2 h_2\right)\left(h_1 - \Delta h + \frac{h_2 + \Delta h}{2}\right).$$
+
+Taking the difference between the final and initial potential energy gives the RPE change due to regridding/remapping,
+
+$$PE_f - PE_i = \frac{\phi'\left(h_1 + h_2\right)}{2} - \frac{\Delta h\left(\phi_1 h_1 + \phi_2 h_2\right)}{2}.$$
+
+With the condition that $\phi_1 > \phi_2$, it is possible for $PE_f - PE_i < 0$ when the remapping is higher order than piecewise constant (PCM). PCM is the lowest order reconstruction, and gives $\phi' = \phi_1 \Delta h$, thus $PE_f - PE_i \ge 0$.

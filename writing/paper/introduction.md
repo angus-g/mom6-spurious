@@ -7,7 +7,6 @@ One of the myriad uses of ocean models is in developing ocean heat uptake estima
 
 Models are unable to accurately constrain the abyssal overturning as the magnitude of spurious diapycnal mixing cannot be completely controlled.
 
-
 Numerical ocean models are governed by approximations of the incompressible Navier-Stokes equations for momentum, also known as the primitive equations. In these models, the vertical balance is hydrostatic, where the vertical pressure gradient force is balanced by the gravitational force. The mixing of momentum by the unresolved eddy field is parameterised by an explicit eddy viscosity term. Potential density of water parcels is controlled by salinity and potential density through an equation of state. These tracers are advected by the explicitly resolved eddy field, and mixed by the unresolved eddy field through a parameterised eddy diffusion term.
 
 To solve the primitive equations, ocean models implement some kind of discretisation, such as the finite volume method. This involves representing the computational domain as a series of grid cells in three-dimensional space, where each grid cell has associated mean velocities and tracer concentrations. Tracer advection schemes are discretisations of the advection equation that create higher-order reconstructions of the tracer field using information from neighbouring grid cells. Often, tracer advection schemes are coupled with a flux limiter, which prevents the creation of spurious minima or maxima in tracer concentration.
@@ -27,9 +26,14 @@ Furthermore, with an open choice of vertical coordinate, it's not clear which is
 
 To allow generalised vertical coordinates, models often make use of an arbitrary Lagrangian-Eulerian (ALE) scheme. There are two general implementations of ALE in ocean models, depending on the reference frame of the model (Margolin & Shashkov, 2003; Leclair & Madec, 2011). In quasi-Eulerian models, the vertical grid is unable to move during the dynamics phase, when the equations of motion are solved. When a new vertical grid is computed, its motion relative to the old vertical grid is calculated as a vertical velocity, which is then used in a vertical advection equation to move coordinate surfaces (Kasahara, 1974). There is a spurious mixing component associated with the use of an advection scheme in this implementation.
 
-The quasi-Lagrangian algorithm (Hirt et al., 1974) is for models which implement a Lagrangian frame of reference. Here, the vertical grid moves during the dynamics phase. During the regridding phase, the new vertical grid is calculated. Finally, there is the remapping phase, during which the model state is mapped onto the new grid, often with an algorithm that conserves total tracers.
+The quasi-Lagrangian algorithm (Hirt et al., 1974) is for models which are implemented in a Lagrangian frame of reference. Here, the vertical grid moves during the dynamics phase. During the regridding phase, the new vertical grid is calculated. Finally, there is the remapping phase, during which the model state is mapped onto the new grid, often with an algorithm that conserves total tracers.
+
+- mention that we're working with quasi-Lagrangian aka regridding/remapping
+- mention the mechanism by which remapping can spuriously mix -- good link to next paragraph
 
 White & Adcroft (2008) demonstrated the development and implementation of an accurate reconstruction scheme for the remapping stage of ALE, with their piecewise quartic method (PQM). The impacts of different regridding and remapping schemes were considered by White et al. (2009), comparing their spurious diffusion in terms of the change of volume distributions across density classes.
+
+- expand, mention how we can contribute
 
 ## Evaluating/diagnosing spurious mixing
 In attempting to evaluate the performance of numerical schemes with regard to spurious mixing, there is no consensus on the diagnostic technique to use. Griffies et al. (2000) used an effective diapycnal diffusivity, which allows for direct comparison between the spurious mixing and expected oceanic values. However, because it uses a reference density profile compiled from the entire domain, the effective diffusivity is only a single idealised vertical profile, and can't be mapped back to real space in any meaningful manner.
@@ -54,3 +58,5 @@ As MPAS-O is a quasi-Eulerian model, there is a resolved transport across vertic
 
 ## Section conclusion, tie to rest of report
 This paper has two main aims. Firstly, to evaluate the performance of another ALE model, MOM6 against the models exhibited by Ilicak et al. and Petersen et al. The comparison is made using both the standard configurations, and with a coordinate that is unique to MOM6, continuous isopycnal. Secondly, a method is proposed for using RPE changes to separate the contributions of horizontal and vertical processes (i.e. advection and ALE). This method allows for the evaluation of different advection schemes, and different orders of interpolation in ALE, and is proposed as a useful tool in comparing between different vertical coordinates.
+
+- highlight holes in current research, and where my contributes fit in

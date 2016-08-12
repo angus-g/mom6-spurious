@@ -6,6 +6,13 @@ In my work with MOM6, I've separately analysed the impacts of the order of accur
 
 The next major section of my project will be to implement and evaluate a new vertical coordinate in MOM6. This will likely take part during an extended stay at GFDL, so that I can closely collaborate with the main developers of MOM6, Alistair Adcroft and Robert Hallberg. As such, the exact direction of my work will be strongly influenced by their recommendations and desires about what needs to be implemented in the model.
 
+- make it clear that Alistair and Bob are leaders and drivers of the model's direction, and scientifically important
+
 One idea is the use of spring dynamics to govern the vertical grid. The stiffness of the springs may be modified by the model state, or prescribed. Doing this gives an adaptive vertical grid that is unable to "tangle" up, as grid points are aware of their neighbours.
 
 Another idea is the extension of an adaptive 3D vertical coordinate (Hofmeister et al., 2010). This method allows for the combination of different properties to define a grid through diffusion equations. A new component to be added is an equation to optimise for the curvature of density surfaces over distance. This is intended to represent large-scale isopycnal surfaces, while permitting local variation.
+
+- third direction, further future
+- more detailed plan with timelines, milestones
+  - could be open to change depending on input
+- tabulated budget of time

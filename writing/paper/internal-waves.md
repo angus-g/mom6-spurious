@@ -18,6 +18,8 @@ is added in the region $x_0 - L < x < x_0 + L$, where $L = 50\,\mathrm{km}$, $x_
 
 ![\label{fig:drpe} *Averaged RPE rate of change*](plots/internal_waves_drpe.png)
 
+- mention that this uses Petersen's data
+
 Considering the average rate of RPE change (Figure \ref{fig:drpe}), MOM6 performs well for each of the chosen vertical coordinates; z-star, z-tilde and continuous isopycnal (rho). This is likely due to its implementation as a layered model while ALE is applied. In this configuration, vertical layers are able to move freely within their column as waves pass through. During horizontal advection, there is exactly zero transport through vertical interfaces, so mixing occurs only laterally through a mostly isopycnal layer. The vertical coordinate becomes more isopycnal with the z-tilde and rho coordinates, thus regridding causes smaller displacement of the interfaces. Subsequently, there is less vertical transport due to remapping and the overall spurious mixing is reduced.
 
 The implementation of the z-tilde coordinate differs between MOM6 and MPAS-O. The filter timescale $\tau_{Dlf}$ in MPAS-O defines the cutoff above which frequencies are treated in a Lagrangian manner. As MOM6 is a layered model, all motion is Lagrangian during a single timestep. The only controllable parameter in the MOM6 implementation of z-tilde is $\tau_{hhf}$, which defines the relaxation timescale of the grid, to prevent long-term drift. We set this to 30 days to match the configuration used for MPAS-O. MOM6 exhibits only a modest improvement over MPAS-O here, since most dynamically interesting scales are already captured by the 100 day Lagrangian timescale used by MPAS-O.
@@ -25,6 +27,8 @@ The implementation of the z-tilde coordinate differs between MOM6 and MPAS-O. Th
 ### Spurious mixing orientation
 
 ![\label{fig:drpesplit} *Spurious mixing orientation in MOM6, displayed as the averaged RPE rate of change for the horizontal and vertical components*](plots/internal_waves_drpe_split.png)
+
+- show fractional change for this and the next figure
 
 We take the z-star configuration of MOM6 (shown in magenta in Figure \ref{fig:drpe}) and compute the orientation of the spurious mixing. When $\mathrm{Re}_\Delta < 10$, the horizontal component is smaller than the vertical. This is consistent with the conclusion of Ilicak et al. (2012), that the grid Reynolds number must be below 10 to avoid the saturation level of spurious mixing. In this regime, the vertical configuration such as coordinate or reconstruction accuracy can have a significant imapct on the overall spurious mixing. There's a minimum in the vertical contribution at $\nu_h = 1\,\mathrm{m}^2\mathrm{s}^{-1}$, corresponding to $\mathrm{Re}_\Delta \approx 400$.
 

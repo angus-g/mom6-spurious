@@ -15,6 +15,9 @@ where $\Theta_0(z)$ is a linearly stratified background between 10.1 C and 13.1 
 
 $$y'_w(x) = y_0 - \frac{y_A}{2}\sin\left(\pi \frac{x - x_2}{x_3 - x_2}\right).$$
 
+![\label{fig:snapshot} Snapshot of surface temperature after 320 days of simulation at 1km horizontal resolution at high grid Reynolds number (low viscosity).](plots/eddies_snapshot_dx1_1.png)
+![\label{fig:snapshot} Snapshot of surface temperature after 320 days of simulation at 1km horizontal resolution at low grid Reynolds number (high viscosity).](plots/eddies_snapshot_dx1_200.png)
+
 The perturbation itself is defined by the temperature anomaly
 
 $$\Theta'(x,y) = \Delta\Theta'\left(1 - \frac{y - y'_w(x)}{\Delta y / 2}\right)$$
@@ -36,3 +39,5 @@ When the horizontal resolution is decreased to 4km, MOM6 exhibits slighly greate
 ![\label{fig:split_4} Spurious mixing orientation at 4km resolution](plots/eddies_drpe_split_4.png)
 
 ![\label{fig:split_1} Spurious mixing orientation at 1km resolution](plots/eddies_drpe_split_1.png)
+
+**For some reason the split results don't sum to the mean (?)**

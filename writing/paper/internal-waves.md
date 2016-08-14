@@ -16,9 +16,7 @@ $$\Theta'(x,z) = -A\cos\left(\frac{\pi}{2L}(x - x_0)\right) \sin\left(\pi\frac{z
 
 is added in the region $x_0 - L < x < x_0 + L$, where $L = 50\,\mathrm{km}$, $x_0 = 125\,\mathrm{km}$. Only the high-amplitude case, with perturbation amplitude $A = 2^\circ\mathrm{C}$ is used, as it is the only case also presented by Petersen et al. (2015). The waves set up by this perturbation have a period of approximately one day, so the test case is run for 100 days to allow the waves to propagate many times across the full extent of the domain.
 
-![\label{fig:drpe} *Averaged RPE rate of change*](plots/internal_waves_drpe.png)
-
-- mention that this uses Petersen's data
+![\label{fig:drpe} *Averaged RPE rate of change*. MPAS-O, MITGCM and MOM results come from Petersen et al. (2015). MOM6 performs comparably or better to models using the same vertical coordinate.](plots/internal_waves_drpe.png)
 
 Considering the average rate of RPE change (Figure \ref{fig:drpe}), MOM6 performs well for each of the chosen vertical coordinates; z-star, z-tilde and continuous isopycnal (rho). This is likely due to its implementation as a layered model while ALE is applied. In this configuration, vertical layers are able to move freely within their column as waves pass through. During horizontal advection, there is exactly zero transport through vertical interfaces, so mixing occurs only laterally through a mostly isopycnal layer. The vertical coordinate becomes more isopycnal with the z-tilde and rho coordinates, thus regridding causes smaller displacement of the interfaces. Subsequently, there is less vertical transport due to remapping and the overall spurious mixing is reduced.
 
@@ -26,20 +24,10 @@ The implementation of the z-tilde coordinate differs between MOM6 and MPAS-O. Th
 
 ### Spurious mixing orientation
 
-![\label{fig:drpesplit} *Spurious mixing orientation in MOM6, displayed as the averaged RPE rate of change for the horizontal and vertical components*](plots/internal_waves_drpe_split.png)
-
-- show fractional change for this and the next figure
+![\label{fig:drpesplit} *Relative contributions to spurious mixing by horizontal and vertical processes. Each contribution is the fraction of the averaged total RPE rate of change.*](plots/internal_waves_drpe_split.png)
 
 We take the z-star configuration of MOM6 (shown in magenta in Figure \ref{fig:drpe}) and compute the orientation of the spurious mixing. When $\mathrm{Re}_\Delta < 10$, the horizontal component is smaller than the vertical. This is consistent with the conclusion of Ilicak et al. (2012), that the grid Reynolds number must be below 10 to avoid the saturation level of spurious mixing. In this regime, the vertical configuration such as coordinate or reconstruction accuracy can have a significant imapct on the overall spurious mixing. There's a minimum in the vertical contribution at $\nu_h = 1\,\mathrm{m}^2\mathrm{s}^{-1}$, corresponding to $\mathrm{Re}_\Delta \approx 400$.
 
 ![\label{fig:tildesplit} *Relative contributions to spurious mixing for the z-tilde vertical coordinate by orientation. Each component is the fraction of the averaged total RPE rate of change shown in Figure \ref{fig:drpe}*](plots/internal_waves_tilde_split.png)
 
 Figure \ref{fig:tildesplit} shows the relative contributions to the total RPE rate of change by the horizontal and vertical components. There is once again a minimum in the contribution by the vertical component at $\nu_h = 1$, corresponding to $\mathrm{Re}_\Delta \approx 450$.
-
-### Other things?
-- Not sure what else to say about the split results
-- Explanation/exploration of continuous isopycnal coordinate
-- Poor behaviour of PLM remapping? -- importance of sufficiently high-order remapping scheme
-    - We've kind of mentioned that it's a vertically dominated test case
-- Say something about the significance of results
-    - perhaps the compensation in RPE despite the saturation of spurious mixing according to grid Re criterion

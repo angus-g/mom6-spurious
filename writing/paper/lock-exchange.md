@@ -1,6 +1,6 @@
 ## Lock Exchange
 
-The lock exchange test case is a simple configuration that shows the creation of intermediate densities by spurious mixing. This is a replication of one of the test cases presented by Ilicak et al. (2012). The test case takes place in a two-dimensional domain of 64km width and 20m depth. Only the highest resolution test cases are chosen, with horizontal and vertical grid spacings of $\Delta x = \SI{500}{\metre}$ and $\Delta z = \SI{1}{\metre}$, respectively. The lock exchange is defined by an initial temperature distribution comprised of one density class on each side of the domain,
+The lock exchange test case is a simple configuration that shows the creation of intermediate densities by spurious mixing. This is a replication of one of the test cases presented by @ilicak12. The test case takes place in a two-dimensional domain of 64km width and 20m depth. Only the highest resolution test cases are chosen, with horizontal and vertical grid spacings of $\Delta x = \SI{500}{\metre}$ and $\Delta z = \SI{1}{\metre}$, respectively. The lock exchange is defined by an initial temperature distribution comprised of one density class on each side of the domain,
 
 ![\label{fig:snapshot} Snapshot of lock exchange after 17 hours at $\nu_h = \SI{0.01}{\square\metre\per\second}$. Temperature is shown in colours. Spurious mixing at the front can be seen by the presence of many intermediate temperatures.](plots/lock_exchange_snapshot_0.01.png)
 
@@ -14,9 +14,9 @@ $$u_f = \frac12 \sqrt{gH \rho'}$$
 
 When calculating the grid Reynolds number, the theoretical front velocity is used instead of the actual mean velocity over the domain. All runs were carried out for 17 hours using a baroclinic timestep that satisfied CFL conditions across the range of horizontal viscosities (\SIlist{0.01;0.1;1;10;100;200}{\square\metre\per\second}).
 
-![\label{fig:rpenorm} Normalised RPE evolution for $\nu_h = 0.01$. MPAS-O, MITGCM and MOM results come from Petersen et al. (2015). MOM6 exhibits a larger increase in RPE due to spurious mixing.](plots/lock_exchange_rpe_norm.png)
+![\label{fig:rpenorm} Normalised RPE evolution for $\nu_h = 0.01$. MPAS-O, MITGCM and MOM results come from @petersen15. MOM6 exhibits a larger increase in RPE due to spurious mixing.](plots/lock_exchange_rpe_norm.png)
 
-![\label{fig:drpe} Instantaneous rate of RPE change at 17h. MPAS-O and MITGCM results come from Petersen et al. (2015).](plots/lock_exchange_drpe.png)
+![\label{fig:drpe} Instantaneous rate of RPE change at 17h. MPAS-O and MITGCM results come from @petersen15.](plots/lock_exchange_drpe.png)
 
 The time series of normalised RPE in \cref{fig:rpenorm} shows MOM6 having a similar shape to MitGCM and MOM5. However, the curve steepens with time, suggesting that more spurious mixing is occurring in MOM6.
 

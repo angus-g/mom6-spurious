@@ -6,11 +6,16 @@ In my work with MOM6, I've separately analysed the impacts of the order of accur
 
 The next major section of my project will be to implement and evaluate a new vertical coordinate in MOM6. This will likely take part during an extended stay at GFDL, so that I can closely collaborate with the main developers of MOM6, Alistair Adcroft and Robert Hallberg. As such, the exact direction of my work will be strongly influenced by their recommendations and desires about what needs to be implemented in the model. Adcroft and Hallberg are leaders and drivers of the MOM6 project as the model is prepared for use in high-impact scientific settings, such as GFDL's 1/10$^\circ$ coupled climate model and the CMIP6 project.
 
-One possible project direction is the use of spring dynamics to govern the vertical grid. There is precedence for this in the horizontal grid, e.g. Tomita et al. (2001), using spring dynamics to move grid points to reduce grid-scale noise. When used in the vertical, the stiffness of the springs may be modified by the model state, or prescribed to result in an adaptive vertical grid that is unable to "tangle" up, as grid points are aware of their neighbours.
+One possible project direction is the use of spring dynamics to govern the vertical grid. There is precedence for this in the horizontal grid, e.g. @tomita01, using spring dynamics to move grid points to reduce grid-scale noise. When used in the vertical, the stiffness of the springs may be modified by the model state, or prescribed to result in an adaptive vertical grid that is unable to "tangle" up, as grid points are aware of their neighbours.
 
-Another idea is the extension of an adaptive 3D vertical coordinate (Hofmeister et al., 2010). This method allows for the combination of different properties to define a grid through diffusion equations. A new component to be added is an equation to optimise for the curvature of density surfaces over distance. This is intended to represent large-scale isopycnal surfaces, while permitting local variation.
+Another idea is the extension of an adaptive 3D vertical coordinate [@hofmeister10]. This method allows for the combination of different properties to define a grid through diffusion equations. A new component to be added is an equation to optimise for the curvature of density surfaces over distance. This is intended to represent large-scale isopycnal surfaces, while permitting local variation.
 
 - third direction, further future
 - more detailed plan with timelines, milestones
   - could be open to change depending on input
 - tabulated budget of time
+
+
+# References
+<!-- empty header for citeproc references -->
+\small

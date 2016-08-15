@@ -31,7 +31,7 @@ In order to encourage baroclinicity, a quadratic bottom drag with drag coefficie
 
 \Cref{fig:snapshot1,fig:snapshot200} show the surface temperature after the full 320 days of simulation at 1km horizontal resolution, at the lowest and highest viscosity, respectively. In the low viscosity case, strong spurious mixing has occurred, but finer-scale features are also evident. Conversely, the range of intermediate temperatures is significantly less with a higher horizontal viscosity, but the eddies are much weaker due to the momentum damping by the viscosity.
 
-![\label{fig:drpe} RPE rate of change for all experiments.](plots/eddies_drpe.png)
+![\label{fig:drpe} RPE rate of change for all experiments. Data from MPAS-O, POP, MITGCM and MOM come from Petersen et al. (2015). MOM6 using the default PLM tracer advection scheme is shown in magenta circles, with the alternate PPM:H3 scheme shown in magenta triangles at \SIlist{10;4}{\kilo\metre} resolution.](plots/eddies_drpe.png)
 
 <!-- ![\label{fig:drpe_10} RPE rate of change at 10km resolution](plots/eddies_drpe_10.png) -->
 

@@ -24,7 +24,7 @@ When calculating the grid Reynolds number, the theoretical front velocity is use
 
 The time series of normalised RPE in Figure \ref{fig:rpenorm} shows MOM6 having a similar shape to MitGCM and MOM5. However, the curve steepens with time, suggesting that more spurious mixing is occurring in MOM6.
 
-Above a grid Reynolds number of 10, MOM6 performs similarly to the other models shown in Figure \ref{fig:drpe}. At this point, the models are running above the threshold for saturation of spurious mixing. However, in the regime where spurious mixing isn't saturated, MOM6 exhibits a somewhat higher RPE rate of change. This suggests that spurious mixing in MOM6 is due to tracer advection, as viscosity is sufficient to damp grid-scale noise in the velocity field.
+Above a grid Reynolds number of 10, MOM6 performs similarly to the other models shown in Figure \ref{fig:drpe}. At this point, the models are running above the threshold for saturation of spurious mixing. However, in the regime where spurious mixing isn't saturated, MOM6 exhibits a somewhat higher RPE rate of change. This suggests that spurious mixing in MOM6 is due to tracer advection, as viscosity in the unsaturated regime is sufficient to damp grid-scale noise in the velocity field.
 
 ### Advection order
 
@@ -34,22 +34,4 @@ One aspect of model configuration that may significantly affect spurious mixing 
 
 ![\label{fig:rpesplit} Horizontal and vertical contributions to RPE change](plots/lock_exchange_drpe_split.png)
 
-Figure \ref{fig:rpesplit} shows that the mixing is predominantly due to horizontal processes. Indeed, for all of the experiments, the average RPE change due to regridding/remapping is actually negative. Physically, this means that regridding/remapping tends to slightly lower the centre of mass of the domain, counteracting some of the mixing due to the advection scheme.
-
-From a physical viewpoint, we expect RPE to be an increasing quantity. However, Figure \ref{fig:rpesplit} shows that the vertical process of regridding/remapping causes a small RPE decrease in these experiments. We illustrate a simple example that demonstrates how the combination of regridding/remapping may create a decrease in total potential energy. For a single column case, this is equivalent to the RPE, assuming no density inversions.
-
-![\label{fig:schematic} A schematic demonstrating the ability for regridding/remapping to cause a decrease in RPE](plots/schematic.png)
-
-Figure \ref{fig:schematic} shows a simple two-cell domain under regridding/remapping. The bottom cell has a mean tracer concentration of $\phi_1$ and thickness $h_1$. Similarly, the top cell has a mean tracer concentration of $\phi_2$ and thickness $h_2$. Regridding moves the interface between the cells from its initial position at $z = h_1$ to the dashed line at $z = h_1 - \Delta h$, and remapping mixes the integrated quantity of tracer $\phi'$ from the right cell to the left cell. Initially, the potential energy of the domain is
-
-$$PE_i = \frac{\phi_1 h_1 h_1}{2} + \phi_2 h_2\left(h_1 + \frac{h_2}{2}\right).$$
-
-After remapping, the potential energy becomes
-
-$$PE_f = \left(\phi_1 h_1 - \phi'\right)\frac{h_1 - \Delta h}{2} + \left(\phi' + \phi_2 h_2\right)\left(h_1 - \Delta h + \frac{h_2 + \Delta h}{2}\right).$$
-
-Taking the difference between the final and initial potential energy gives the RPE change due to regridding/remapping,
-
-$$PE_f - PE_i = \frac{\phi'\left(h_1 + h_2\right)}{2} - \frac{\Delta h\left(\phi_1 h_1 + \phi_2 h_2\right)}{2}.$$
-
-With the condition that $\phi_1 > \phi_2$, it is possible for $PE_f - PE_i < 0$ when the remapping is higher order than piecewise constant (PCM). PCM is the lowest order reconstruction, and gives $\phi' = \phi_1 \Delta h$, thus $PE_f - PE_i \ge 0$.
+Figure \ref{fig:rpesplit} shows that the mixing is predominantly due to horizontal processes. Indeed, for all of the experiments, the average RPE change due to regridding/remapping is actually negative. Physically, this means that regridding/remapping tends to slightly lower the centre of mass of the domain, counteracting some of the centre of mass increase due to mixing by the advection scheme. The magnitude of this compensation by regridding/remapping is negligible, so the spurious mixing is still set by the tracer advection scheme.

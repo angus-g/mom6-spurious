@@ -20,3 +20,21 @@ In many models, there is an explicit distinction between the horizontal and vert
 The RPE contributions must be carefully calculated so that they include only information from relevant portions of a single timestep. Due to this, the increases in RPE may be small, from slight changes in density or fluid parcel volume. Diagnosing an instantaneous rate of change of RPE within a timestep may then calculating the difference between two values of similar magnitude. The subtraction of two similar quantities is an operation that causes a loss of precision in floating-point arithmetic. Additionally, changes in RPE are highly dependent on the current dynamic state of the fluid, therefore we ensure that a sufficient number of samples are taken and averaged to capture the trend in the result.
 
 Previous analyses of spurious mixing through changes in RPE have only used a timeseries of RPE taken from a single stage of in a timestep. This means that spurious mixing is only diagnosed for the model as a whole, and can't be attributed to any finer grain parts of the dynamics. Our extension of separating RPE contributions allows us to address the interplay of different components, such as the order of advection scheme chosen, the order of accuracy of vertical reconstruction used for remapping, and the specific impact of choice of vertical coordinate. Determining the dominant orientation of spurious mixing is also important because of the anisotropy of horizontal and vertical coordinates in ocean models. Some component of the horizontal spurious mixing may be diapycnal in the presence of sloping isopycnals, and therefore manifests in an RPE change when a linear equation of state is used. Conversely, spurious mixing across vertical surfaces, due to regridding/remapping, will directly affect the vertical profile of density. These are important considerations for evaluation of vertical coordinates.
+
+From a physical viewpoint, we expect RPE to be an increasing quantity. However, we will see that the vertical process of regridding/remapping may cause RPE to decrease in some cases. We illustrate a simple example that demonstrates how the combination of regridding/remapping may create a decrease in total potential energy. For a single column case, this is equivalent to the RPE, assuming no density inversions.
+
+![\label{fig:schematic} A schematic demonstrating the ability for regridding/remapping to cause a decrease in RPE](plots/schematic.png)
+
+Figure \ref{fig:schematic} shows a simple two-cell domain under regridding/remapping. The bottom cell has a mean tracer concentration of $\phi_1$ and thickness $h_1$. Similarly, the top cell has a mean tracer concentration of $\phi_2$ and thickness $h_2$. Regridding moves the interface between the cells from its initial position at $z = h_1$ to the dashed line at $z = h_1 - \Delta h$, and remapping mixes the integrated quantity of tracer $\phi'$ from the right cell to the left cell. Initially, the potential energy of the domain is
+
+$$PE_i = \frac{\phi_1 h_1 h_1}{2} + \phi_2 h_2\left(h_1 + \frac{h_2}{2}\right).$$
+
+After remapping, the potential energy becomes
+
+$$PE_f = \left(\phi_1 h_1 - \phi'\right)\frac{h_1 - \Delta h}{2} + \left(\phi' + \phi_2 h_2\right)\left(h_1 - \Delta h + \frac{h_2 + \Delta h}{2}\right).$$
+
+Taking the difference between the final and initial potential energy gives the RPE change due to regridding/remapping,
+
+$$PE_f - PE_i = \frac{\phi'\left(h_1 + h_2\right)}{2} - \frac{\Delta h\left(\phi_1 h_1 + \phi_2 h_2\right)}{2}.$$
+
+With the condition that $\phi_1 > \phi_2$, it is possible for $PE_f - PE_i < 0$ when the remapping is higher order than piecewise constant (PCM). PCM is the lowest order reconstruction, and gives $\phi' = \phi_1 \Delta h$, thus $PE_f - PE_i \ge 0$.

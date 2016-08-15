@@ -1,6 +1,6 @@
 ## Baroclinic eddies
 
-The previous two test cases were only 2D, and therefore couldn't incorporate any rotation. This test case involves a baroclinically unstable temperature front in a periodic channel with rotation. The front has a sinusoidal meridional position, defined as
+The previous two test cases were only 2D, and therefore couldn't incorporate any rotation. To explore the impact of a three dimensional domain with rotation, this test case involves a baroclinically unstable temperature front in a periodic channel with rotation. This test case was presented by Ilicak et al. (2012), as the baroclinically unstable front quickly leads to vigorous eddying without either mechanical or buoyancy forcing, thus it is a closed system suitable for analysis by changes in RPE. The domain is a periodic channel 160km wide by 500km long, with a depth of 1000m. The front has a sinusoidal meridional position, defined as
 
 $$y_w(x) = y_0 - y_A \sin\left(2\pi k \frac{x}{L_x}\right),$$
 
@@ -11,18 +11,20 @@ $$\Theta(x,y,z) = \begin{cases}
 \Theta_0(z) - \Delta \Theta \left(1 - \frac{y - y_w(x)}{\Delta y}\right) & y_w < y < y_w + \Delta y, \\
 \Theta_0(z) - \Delta \Theta & y \le y_w(x),\end{cases}$$
 
-where $\Theta_0(z)$ is a linearly stratified background between 10.1 C and 13.1 C, $\Delta y = 40\,\text{km}$ is the width of the front and $\Delta \Theta = 1.2\,\mathrm{C}$ is the temperature difference across the front. Additionally, a temperature perturbation is added to the crest of one of the waves to promote baroclinic instability. The region over which the perturbation is added is bounded by $x_2 \le x \le x_3$ and $y'_w - \Delta y / 2 \le y \le y'_w + \Delta y / 2$, where
+where $\Theta_0(z)$ is a linearly stratified background between 10.1 C and 13.1 C, $\Delta y = 40\,\text{km}$ is the width of the front and $\Delta \Theta = 1.2\,\mathrm{C}$ is the temperature difference across the front. Additionally, a temperature perturbation is added to the crest of one of the waves to promote instability. The region over which the perturbation is added is bounded by $x_2 \le x \le x_3$ and $y'_w - \Delta y / 2 \le y \le y'_w + \Delta y / 2$, where
 
 $$y'_w(x) = y_0 - \frac{y_A}{2}\sin\left(\pi \frac{x - x_2}{x_3 - x_2}\right).$$
 
-![\label{fig:snapshot} Snapshot of surface temperature after 320 days of simulation at 1km horizontal resolution at high grid Reynolds number (low viscosity).](plots/eddies_snapshot_dx1_1.png)
-![\label{fig:snapshot} Snapshot of surface temperature after 320 days of simulation at 1km horizontal resolution at low grid Reynolds number (high viscosity).](plots/eddies_snapshot_dx1_200.png)
+![\label{fig:snapshot1} Snapshot of surface temperature after 320 days of simulation at 1km horizontal resolution at high grid Reynolds number (low viscosity).](plots/eddies_snapshot_dx1_1.png)
+![\label{fig:snapshot200} Snapshot of surface temperature after 320 days of simulation at 1km horizontal resolution at low grid Reynolds number (high viscosity).](plots/eddies_snapshot_dx1_200.png)
 
 The perturbation itself is defined by the temperature anomaly
 
 $$\Theta'(x,y) = \Delta\Theta'\left(1 - \frac{y - y'_w(x)}{\Delta y / 2}\right)$$
 
-The domain is 160km wide by 500km long, with a depth of 1000m. Experiments were performed at horizontal resolutions of 1km, 4km and 10km, at a constant uniform vertical resolution of 50m. For each choice of horizontal resolution, the horizontal viscosities were $\nu_h = 1, 5, 10 20, 200$, giving a range of lateral grid Reynolds numbers from $O(1)$ at the highest viscosity, through to $O(1000)$ for the lowest viscosity.
+In order to encourage baroclinicity, a quadratic bottom drag with drag coefficient $\C_D = 0.01$ is used. Experiments were performed at horizontal resolutions of 1km, 4km and 10km, at a constant uniform vertical resolution of 50m. For each choice of horizontal resolution, the horizontal viscosities were $\nu_h = 1, 5, 10 20, 200\,\mathrm{m}^2\mathrm{s}^{-1}$, giving a range of lateral grid Reynolds numbers from $O(1)$ at the highest viscosity, through to $O(1000)$ for the lowest viscosity.
+
+Figures \ref{fig:snapshot1} and \ref{fig:snapshot200} show the surface temperature after the full 320 days of simulation at 1km horizontal resolution, at the lowest and highest viscosity, respectively. In the low viscosity case, strong spurious mixing has occurred, but finer-scale features are also evident. Conversely, the range of intermediate temperatures is significantly less with a higher horizontal viscosity, but the eddies are much weaker due to the momentum damping by the viscosity.
 
 ![\label{fig:drpe_10} RPE rate of change at 10km resolution](plots/eddies_drpe_10.png)
 
@@ -39,5 +41,3 @@ When the horizontal resolution is decreased to 4km, MOM6 exhibits slighly greate
 ![\label{fig:split_4} Spurious mixing orientation at 4km resolution](plots/eddies_drpe_split_4.png)
 
 ![\label{fig:split_1} Spurious mixing orientation at 1km resolution](plots/eddies_drpe_split_1.png)
-
-**For some reason the split results don't sum to the mean (?)**

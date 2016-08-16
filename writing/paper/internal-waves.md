@@ -14,7 +14,7 @@ $$\Theta'(x,z) = -A\cos\left(\frac{\pi}{2L}(x - x_0)\right) \sin\left(\pi\frac{z
 
 is added in the region $x_0 - L < x < x_0 + L$, where $L = \SI{50}{\kilo\metre}$, $x_0 = \SI{125}{\kilo\metre}$. Only the high-amplitude case, with perturbation amplitude $A = \SI{2}{\celsius}$ is used, as it is the only case also presented by @petersen15. The waves set up by this perturbation have a period of approximately one day, so the test case is run for 100 days to allow the waves to propagate many times across the full extent of the domain.
 
-![\label{fig:drpe} Averaged RPE rate of change. MPAS-O, MITGCM and MOM results come from @petersen15. MOM6 performs comparably or better to models using the same vertical coordinate. *although MITGCM and MOM come from Ilicak originally...*](plots/internal_waves_drpe.png)
+![\label{fig:drpe} Averaged rate of RPE change. MPAS-O, MITGCM and MOM results come from @petersen15. MOM6 performs comparably or better to models using the same vertical coordinate. *although MITGCM and MOM come from Ilicak originally...*](plots/internal_waves_drpe.png)
 
 Considering the average rate of RPE change (\cref{fig:drpe}), MOM6 performs well for each of the chosen vertical coordinates; z-star, z-tilde and continuous isopycnal (rho). This is likely due to its implementation as a quasi-Lagrangian ALE model. In this configuration, vertical layers are able to move freely within their column as waves pass through. During horizontal advection, there is exactly zero transport through vertical interfaces, so mixing occurs only laterally along an isopycnal layer. The vertical coordinate becomes more isopycnal with the z-tilde and rho coordinates, thus regridding causes smaller displacement of the interfaces. Subsequently, there is less vertical transport due to remapping and the overall spurious mixing is reduced.
 
@@ -24,10 +24,10 @@ The implementation of the z-tilde coordinate differs between MOM6 and MPAS-O. Th
 
 - combine plots to a single axis
 
-![\label{fig:drpesplit} Relative contributions to spurious mixing by horizontal and vertical processes. Each contribution is the fraction of the averaged total RPE rate of change.](plots/internal_waves_drpe_split.png)
+![\label{fig:drpesplit} Relative contributions to spurious mixing by horizontal and vertical processes. Each contribution is the fraction of the averaged total rate of RPE change.](plots/internal_waves_drpe_split.png)
 
 We take the z-star configuration of MOM6 (shown in magenta in \cref{fig:drpe}) and compute the orientation of the spurious mixing. When $\mathrm{Re}_\Delta < 10$, the horizontal component is smaller than the vertical. This is consistent with the conclusion of @ilicak12, that the grid Reynolds number must be below 10 to avoid the saturation level of spurious mixing. In this regime, the vertical configuration such as coordinate or reconstruction accuracy can have a significant imapct on the overall spurious mixing. There is a minimum in the vertical contribution at $\nu_h = \SI{1}{\square\metre\per\second}$, corresponding to $\mathrm{Re}_\Delta \approx 400$.
 
-![\label{fig:tildesplit} Relative contributions to spurious mixing for the z-tilde vertical coordinate by orientation. Each component is the fraction of the averaged total RPE rate of change shown in \cref{fig:drpe}](plots/internal_waves_tilde_split.png)
+![\label{fig:tildesplit} Relative contributions to spurious mixing for the z-tilde vertical coordinate by orientation. Each component is the fraction of the averaged total rate of RPE change shown in \cref{fig:drpe}](plots/internal_waves_tilde_split.png)
 
-\Cref{fig:tildesplit} shows the relative contributions to the total RPE rate of change by the horizontal and vertical components. There is once again a minimum in the contribution by the vertical component at $\nu_h = \SI{1}{\square\metre\per\second}$, corresponding to $\mathrm{Re}_\Delta \approx 400$. Since this also happens with the z-star and continuous isopycnal (see \cref{fig:drpe}), it is mostly likely a feedback effect or resonance due to the horizontal viscosity.
+\Cref{fig:tildesplit} shows the relative contributions to the total rate of RPE change by the horizontal and vertical components. There is once again a minimum in the contribution by the vertical component at $\nu_h = \SI{1}{\square\metre\per\second}$, corresponding to $\mathrm{Re}_\Delta \approx 400$. Since this also happens with the z-star and continuous isopycnal (see \cref{fig:drpe}), it is mostly likely a feedback effect or resonance due to the horizontal viscosity.

@@ -15,6 +15,8 @@ where $\Theta_0(z)$ is a linearly stratified background between \SI{10.1}{\celsi
 
 $$y'_w(x) = y_0 - \frac{y_A}{2}\sin\left(\pi \frac{x - x_2}{x_3 - x_2}\right).$$
 
+![\label{fig:snapshot_ic} Snapshot of initial condition of surface temperature at \SI{1}{\kilo\metre} horizontal resolution. The temperature perturbation can be seen at the third trough in the sinusoidal front.](plots/eddies_snapshot_dx1_initial.png){ width=50% }
+
 <!--
 ![\label{fig:snapshot1} Snapshot of surface temperature after 320 days of simulation at 1km horizontal resolution at high grid Reynolds number (low viscosity).](plots/eddies_snapshot_dx1_1.png)
 

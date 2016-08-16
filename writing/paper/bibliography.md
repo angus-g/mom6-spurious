@@ -750,4 +750,53 @@ references:
   title: Shallow water model on a modified icosahedral geodesic grid by using spring
     dynamics
   DOI: 10.1006/jcph.2001.6897
+- id: armour16
+  type: article-journal
+  author:
+  - family: Armour
+    given: Kyle C.
+  - family: Marshall
+    given: John
+  - family: Scott
+    given: Jeffery R.
+  - family: Donohoe
+    given: Aaron
+  - family: Newsom
+    given: Emily R.
+  issued:
+  - year: '2016'
+    month: '7'
+  accessed:
+  - year: '2016'
+    month: '8'
+    day: '16'
+  title: Southern ocean warming delayed by circumpolar upwelling and equatorward transport
+  container-title: Nature Geoscience
+  container-title-short: Nature Geosci
+  page: '549-554'
+  volume: '9'
+  issue: '7'
+  abstract: 'The Southern Ocean has shown little warming over recent decades, in
+    stark contrast to the rapid warming observed in the Arctic. Along the northern
+    flank of the Antarctic Circumpolar Current, however, the upper ocean has warmed
+    substantially. Here we present analyses of oceanographic observations and general
+    circulation model simulations showing that these patterns—of delayed warming south
+    of the Antarctic Circumpolar Current and enhanced warming to the north—are fundamentally
+    shaped by the Southern Ocean’s meridional overturning circulation: wind-driven
+    upwelling of unmodified water from depth damps warming around Antarctica; greenhouse
+    gas-induced surface heat uptake is largely balanced by anomalous northward heat
+    transport associated with the equatorward flow of surface waters; and heat is
+    preferentially stored where surface waters are subducted to the north. Further,
+    these processes are primarily due to passive advection of the anomalous warming
+    signal by climatological ocean currents; changes in ocean circulation are secondary.
+    These findings suggest the Southern Ocean responds to greenhouse gas forcing on
+    the centennial, or longer, timescale over which the deep ocean waters that are
+    upwelled to the surface are warmed themselves. It is against this background of
+    gradual warming that multidecadal Southern Ocean temperature trends must be understood.
+    View full text'
+  keyword: Climate and Earth system modelling, Physical oceanography
+  URL: http://www.nature.com/ngeo/journal/v9/n7/abs/ngeo2731.html
+  DOI: 10.1038/ngeo2731
+  ISSN: '1752-0894'
+  language: en-US
 ...

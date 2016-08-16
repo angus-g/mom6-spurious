@@ -1,6 +1,6 @@
 ## Baroclinic eddies
 
-The previous two test cases were only 2D, and therefore couldn't incorporate any rotation. To explore the impact of a three dimensional domain with rotation, this test case involves a baroclinically unstable temperature front in a periodic channel with rotation. This test case was presented by @ilicak12, as the baroclinically unstable front quickly leads to vigorous eddying without either mechanical or buoyancy forcing, thus it is a closed system suitable for analysis by changes in RPE. The domain is a periodic channel \SI{160}{\kilo\metre} wide by \SI{500}{\kilo\metre} long, with a depth of \SI{1000}{\metre}. The front has a sinusoidal meridional position, defined as
+The previous two test cases were only two-dimensional, and therefore couldn't incorporate the influence of the Coriolis force. We now introduce a test case that involves a baroclinically unstable temperature front in a periodic channel with rotation. This test case was presented by @ilicak12, as the baroclinically unstable front quickly leads to vigorous eddying without either mechanical or buoyancy forcing, thus it is a closed system suitable for analysis by changes in RPE. The domain is a periodic channel \SI{160}{\kilo\metre} wide by \SI{500}{\kilo\metre} long, with a depth of \SI{1000}{\metre}. The front has a sinusoidal meridional position, defined as
 
 $$y_w(x) = y_0 - y_A \sin\left(2\pi k \frac{x}{L_x}\right),$$
 
@@ -39,7 +39,7 @@ In order to encourage baroclinicity, a quadratic bottom drag with drag coefficie
 
 <!-- ![\label{fig:drpe_4} RPE rate of change at 4km resolution](plots/eddies_drpe_4.png) -->
 
-When the horizontal resolution is decreased to 4km, MOM6 exhibits slighly greater spurious mixing than POP across the range of experiments. At this resolution, the PPM:H3 advection scheme consistently provides a small decrease in spurious mixing as compared to the PLM scheme. However, the improvement in spurious mixing is minor, and may not be worth the extra computational cost involved in invoking the PPM:H3 advection scheme.
+When the horizontal resolution is decreased to 4km, MOM6 exhibits slightly greater spurious mixing than POP across the range of experiments. At this resolution, the PPM:H3 advection scheme consistently provides a small decrease in spurious mixing as compared to the PLM scheme. However, the improvement in spurious mixing is minor, and may not be worth the extra computational cost involved in invoking the PPM:H3 advection scheme.
 
 <!-- ![\label{fig:drpe_1} RPE rate of change at 1km resolution](plots/eddies_drpe_1.png) -->
 

@@ -2,7 +2,7 @@
 
 The lock exchange test case is a simple configuration that shows the creation of intermediate densities by spurious mixing. This is a replication of one of the test cases presented by @ilicak12. The test case takes place in a two-dimensional domain of 64km width and 20m depth. Only the highest resolution test cases are chosen, with horizontal and vertical grid spacings of $\Delta x = \SI{500}{\metre}$ and $\Delta z = \SI{1}{\metre}$, respectively. The lock exchange is defined by an initial temperature distribution comprised of one density class on each side of the domain,
 
-![\label{fig:snapshot} Snapshot of lock exchange after 17 hours at $\nu_h = \SI{0.01}{\square\metre\per\second}$. Temperature (\si{\celsius}) is shown in colours. Spurious mixing at the front can be seen by the presence of intermediate temperatures.](plots/lock_exchange_snapshot_0.01.png)
+![\label{fig:snapshot} Snapshots of lock exchange at 6 hours (top) and 17 hours (bottom) at $\nu_h = \SI{0.01}{\square\metre\per\second}$. Temperature (\si{\celsius}) is shown in colours. Spurious mixing at the front can be seen by the presence of intermediate temperatures.](plots/lock_exchange_snapshot_0.01.png)
 
 $$\Theta(x) = \begin{cases}
 \SI{5}{\celsius} & x < \SI{32}{\kilo\metre}\\

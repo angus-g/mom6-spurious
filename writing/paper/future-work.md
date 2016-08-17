@@ -16,7 +16,7 @@ The final direction of my project is less certain, as it depends on input from A
 
 ## Timeline
 
-Currently, I'm writing up my work on diagnosing the orientation of spurious mixing for publication. I hope to submit this within the next few months; it would be a refinement of the current report. This work forms the motivation for the next stage of my project, by showing that at low viscosities, or particularly at high horizontal resolutions, the vertical coordinate scheme has a significant impact. I think an ideal time to work at GFDL would be early next year, as the first phase of my project is wrapping up. By doing this, I'd aim to have publishable work within the first half of next year.
+Currently, I'm writing up my work on diagnosing the orientation of spurious mixing for publication. I hope to submit this within the next few months; it would be a refinement of the current report. There are a few additional experiments to run, particularly baroclinic eddies with a continuous isopycnal vertical coordinate. I am also awaiting input from Alistair Adcroft regarding his thoughts on current results and any further suggestions for experiments/analyses. This work forms the motivation for the next stage of my project, by showing that at low viscosities, or particularly at high horizontal resolutions, the vertical coordinate scheme has a significant impact. I think an ideal time to work at GFDL would be early next year, as the first phase of my project is wrapping up. By doing this, I'd aim to have publishable work within the first half of next year.
 
 - final part of timeline
 

@@ -23,7 +23,7 @@ Previous analyses of spurious mixing through changes in RPE have only used a tim
 
 From a physical viewpoint, we expect RPE to be an increasing quantity. However, we will see that the vertical process of regridding/remapping may cause RPE to decrease in some cases. We illustrate a simple example that demonstrates how the combination of regridding/remapping may create a decrease in total potential energy. For a single column case, this is equivalent to the RPE, assuming no density inversions.
 
-![\label{fig:schematic} A schematic demonstrating the ability for regridding/remapping to cause a decrease in RPE](plots/schematic.png)
+![\label{fig:schematic} A schematic demonstrating the ability for regridding/remapping to cause a decrease in RPE](plots/schematic.pdf)
 
 \Cref{fig:schematic} shows a simple two-cell domain under regridding/remapping. The bottom cell has a mean tracer concentration of $\phi_1$ and thickness $h_1$. Similarly, the top cell has a mean tracer concentration of $\phi_2$ and thickness $h_2$. Regridding moves the interface between the cells from its initial position at $z = h_1$ to the dashed line at $z = h_1 - \Delta h$, and remapping mixes the integrated quantity of tracer $\phi'$ from the right cell to the left cell. Initially, the potential energy of the domain is
 

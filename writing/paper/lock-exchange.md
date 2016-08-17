@@ -2,7 +2,7 @@
 
 The lock exchange test case is a simple configuration that shows the creation of intermediate densities by spurious mixing. This is a replication of one of the test cases presented by @ilicak12. The test case takes place in a two-dimensional domain of 64km width and 20m depth. Only the highest resolution test cases are chosen, with horizontal and vertical grid spacings of $\Delta x = \SI{500}{\metre}$ and $\Delta z = \SI{1}{\metre}$, respectively. The lock exchange is defined by an initial temperature distribution comprised of one density class on each side of the domain,
 
-![\label{fig:snapshot} Snapshots of lock exchange at 6 hours (top) and 17 hours (bottom) at $\nu_h = \SI{0.01}{\square\metre\per\second}$. Temperature (\si{\celsius}) is shown in colours. Spurious mixing at the front can be seen by the presence of intermediate temperatures.](plots/lock_exchange_snapshot_0.01.png)
+![\label{fig:snapshot} Snapshots of lock exchange at 6 hours (top) and 17 hours (bottom) at $\nu_h = \SI{0.01}{\square\metre\per\second}$. Temperature (\si{\celsius}) is shown in colours. Spurious mixing at the front can be seen by the presence of intermediate temperatures.](plots/lock_exchange_snapshot_0.01.pdf)
 
 $$\Theta(x) = \begin{cases}
 \SI{5}{\celsius} & x < \SI{32}{\kilo\metre}\\
@@ -14,9 +14,9 @@ $$u_f = \frac12 \sqrt{gH \rho'},$$
 
 where $\rho'$ is the density difference across the front. When calculating the grid Reynolds number, the theoretical front velocity is used instead of the actual mean velocity over the domain. All runs were carried out for 17 hours using a baroclinic timestep that satisfied CFL conditions across the range of horizontal viscosities (\SIlist{0.01;0.1;1;10;100;200}{\square\metre\per\second}).
 
-![\label{fig:rpenorm} Normalised RPE evolution for $\nu_h = 0.01$. MPAS-O, MITGCM and MOM results come from @petersen15. MOM6 exhibits a larger increase in RPE due to spurious mixing.](plots/lock_exchange_rpe_norm.png)
+![\label{fig:rpenorm} Normalised RPE evolution for $\nu_h = 0.01$. MPAS-O, MITGCM and MOM results come from @petersen15 and @ilicak12. MOM6 exhibits a larger increase in RPE due to spurious mixing.](plots/lock_exchange_rpe_norm.pdf)
 
-![\label{fig:drpe} Instantaneous rate of RPE change at 17h. MPAS-O and MITGCM results come from @petersen15.](plots/lock_exchange_drpe.png)
+![\label{fig:drpe} Instantaneous rate of RPE change at 17h. MPAS-O and MITGCM results come from @petersen15 and @ilicak12.](plots/lock_exchange_drpe.pdf)
 
 The time series of normalised RPE in \cref{fig:rpenorm} shows MOM6 having a similar shape to MitGCM and MOM5. However, the curve steepens with time, suggesting that more spurious mixing is occurring in MOM6.
 
@@ -28,6 +28,6 @@ One aspect of model configuration that may significantly affect spurious mixing 
 
 ### Directional split
 
-![\label{fig:rpesplit} Horizontal and vertical contributions to RPE change](plots/lock_exchange_drpe_split.png)
+![\label{fig:rpesplit} Horizontal and vertical contributions to RPE change](plots/lock_exchange_drpe_split.pdf)
 
 \Cref{fig:rpesplit} shows that the mixing is predominantly due to horizontal processes. Indeed, for all of the experiments, the average RPE change due to regridding/remapping is actually negative. Physically, this means that regridding/remapping tends to slightly lower the centre of mass of the domain, counteracting some of the centre of mass increase due to mixing by the advection scheme. The magnitude of this compensation by regridding/remapping is negligible, so the spurious mixing is still set by the tracer advection scheme.

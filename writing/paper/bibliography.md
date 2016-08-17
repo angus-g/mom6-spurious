@@ -799,4 +799,69 @@ references:
   DOI: 10.1038/ngeo2731
   ISSN: '1752-0894'
   language: en-US
+- id: gentry66
+  type: article-journal
+  author:
+  - family: Gentry
+    given: Richard A
+  - family: Martin
+    given: Robert E
+  - family: Daly
+    given: Bart J
+  issued:
+  - year: '1966'
+    month: '8'
+    day: '1'
+  accessed:
+  - year: '2016'
+    month: '8'
+    day: '17'
+  title: An eulerian differencing method for unsteady compressible flow problems
+  container-title: Journal of Computational Physics
+  container-title-short: Journal of Computational Physics
+  page: '87-118'
+  volume: '1'
+  issue: '1'
+  abstract: 'An Eulerian finite difference method is presented which can be used
+    with a high-speed computer to solve the time-dependent equations of motion for
+    the compressible flow of a fluid. The difference equations are described in detail,
+    and the nature of the truncation errors introduced by the numerical approximations
+    is discussed, as are the stability properties of the equations. Three solutions
+    involving time-dependent flow in two space dimensions are described and analyzed:
+    the diffraction of a weak shock travelling through a z-shaped tunnel, the interaction
+    of a supersonic blunt body with a plane shock wave, and the passage of a plane
+    shock over a conical body. Good agreement with experimental data is obtained in
+    all cases where comparisons are made.'
+  URL: http://www.sciencedirect.com/science/article/pii/0021999166900143
+  DOI: 10.1016/0021-9991(66)90014-3
+  ISSN: '0021-9991'
+- id: gent90
+  type: article-journal
+  author:
+  - family: Gent
+    given: Peter R.
+  - family: McWilliams
+    given: James C.
+  issued:
+  - year: '1990'
+    month: '1'
+    day: '1'
+  accessed:
+  - year: '2015'
+    month: '3'
+    day: '20'
+  title: Isopycnal mixing in ocean circulation models
+  container-title: Journal of Physical Oceanography
+  container-title-short: J. Phys. Oceanogr.
+  page: '150-155'
+  volume: '20'
+  issue: '1'
+  abstract: Abstract A subgrid-scale form for mesoscale eddy mixing on isopycnal surfaces
+    is proposed for use in non-eddy-resolving ocean circulation models. The mixing
+    is applied in isopycnal coordinates to isopycnal layer thickness, or inverse density
+    gradient, as well as to passive scalars, temperature and salinity. The transformation
+    of these mixing forms to physical coordinates is also presented.
+  URL: http://journals.ametsoc.org/doi/abs/10.1175/1520-0485%281990%29020%3C0150%3AIMIOCM%3E2.0.CO%3B2
+  DOI: 10.1175/1520-0485(1990)020<0150:IMIOCM>2.0.CO;2
+  ISSN: '0022-3670'
 ...

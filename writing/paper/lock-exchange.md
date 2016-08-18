@@ -14,7 +14,7 @@ $$u_f = \frac12 \sqrt{gH \rho'},$$
 
 where $\rho'$ is the density difference across the front. When calculating the grid Reynolds number, the theoretical front velocity is used instead of the actual mean velocity over the domain. All runs were carried out for 17 hours using a baroclinic timestep that satisfied CFL conditions across the range of horizontal viscosities (\SIlist{0.01;0.1;1;10;100;200}{\square\metre\per\second}).
 
-![\label{fig:rpenorm} Normalised RPE evolution for $\nu_h = 0.01$. MPAS-O, MITGCM and MOM results come from @petersen15 and @ilicak12. MOM6 exhibits a larger increase in RPE due to spurious mixing.](plots/lock_exchange_rpe_norm.pdf)
+![\label{fig:rpenorm} Normalised RPE evolution for $\nu_h = \SI{0.01}{\square\metre\per\second}$. MPAS-O, MITGCM and MOM results come from @petersen15 and @ilicak12. MOM6 exhibits a larger increase in RPE due to spurious mixing.](plots/lock_exchange_rpe_norm.pdf)
 
 ![\label{fig:drpe} Instantaneous rate of RPE change at 17h. MPAS-O and MITGCM results come from @petersen15 and @ilicak12.](plots/lock_exchange_drpe.pdf)
 

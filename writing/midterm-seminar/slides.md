@@ -117,3 +117,6 @@ Something
 
 * * *
 <!-- ~ 5 mins -->
+
+## References {.allowframebreaks}
+\footnotesize

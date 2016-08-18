@@ -5,28 +5,46 @@ date: August 18, 2016
 header-includes:
 - \usepackage[font=small, labelfont=bf]{caption}
 - \usepackage{siunitx}
+- \newcommand{\columnsbegin}{\begin{columns}}
+- \newcommand{\columnsend}{\end{columns}}
 ---
 
 # Overview
 ## Motivation
 
-Some stuff
-
-## Previous work
-
-Something
+- Mixing at depth controls the abyssal overturning cell [@mashayek15]
+- Spurious mixing
 
 ## How models work
 
-Something
+- MOM6 is a quasi-Lagrangian model (defined by @leclair11)
+- During each timestep:
+  - Solve the primitive equations, advect tracers (**horizontal**)
+  - Calculate a new vertical grid based on the current model state (*regridding*)
+  - New grid is applied (*remapping*, **vertical**)
 
 ## Regridding/remapping
 
-Something
+\columnsbegin
+\column{0.5\textwidth}
+
+- (Conservative) sub-cell reconstructions of velocity and tracers
+- Integrated between interfaces, mixed between cells
+
+\column{0.5\textwidth}
+
+![](../paper/plots/schematic.pdf)
+
+\columnsend
+
+## Previous work
+
+- @ilicak12
+- @petersen15
 
 ## Reference potential energy
 
-Something
+$$\mathrm{RPE} = g\int_\Omega \rho^* z \,\mathrm{d}V$$
 
 # Experiments
 ## Overview

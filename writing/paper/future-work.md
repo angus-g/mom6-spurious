@@ -10,15 +10,23 @@ Current plans will focus on investigating one of two possible strategies. The fi
 
 The second strategy is the extension of an adaptive 3D vertical coordinate [@hofmeister10]. This method defines a grid through diffusion equations, incorporating different elements of model state, such as stratification and shear. By filtering horizontally, the vertical coordinate can be coupled between neighbouring water columns. A new component to be added to this formulation is an equation to minimise the curvature of density surfaces over distance. This is intended to represent large-scale isopycnal surfaces, while permitting local variations in density structure.
 
-The final direction of my project is less certain, as it depends on input from Adcroft and Hallberg.
-
-- some kind of physical link, or evaluation of coordinate choice
+The final direction of my project is a physical evaluation of the new vertical coordinate, compared with others in a more complete ocean circulation configuration. However, the exact form of this evaluation depends on the direction of the second phase. For example, I started looking into overturning circulation sensitivity experiments late last year before scaling back to more idealised spurious mixing studies. The isopycnal adaptive 3D vertical coordinate described above would however be a good candidate for these larger scale, more physically relevant experiments. Using this coordinate may provide better insight into overturning circulation as the mixing between separate density classes would be reduced.
 
 ## Timeline
 
-Currently, I'm writing up my work on diagnosing the orientation of spurious mixing for publication. I hope to submit this within the next few months; it would be a refinement of the current report. There are a few additional experiments to run, particularly baroclinic eddies with a continuous isopycnal vertical coordinate. I am also awaiting input from Alistair Adcroft regarding his thoughts on current results and any further suggestions for experiments/analyses. This work forms the motivation for the next stage of my project, by showing that at low viscosities, or particularly at high horizontal resolutions, the vertical coordinate scheme has a significant impact. I think an ideal time to work at GFDL would be early next year, as the first phase of my project is wrapping up. By doing this, I'd aim to have publishable work within the first half of next year.
+Each phase of my project will have an attached publication, at approximately 6-month intervals according to the following timeline:
 
-- final part of timeline
+2016
+: Finish Ocean Modelling paper -- this report is a base, accompanied by some extra experiments and analysis
+
+Early 2017
+: Visit GFDL for approximately 2 months to work on new vertical coordinate
+
+Rest of 2017
+: Finalise work on coordinate and write up, then begin setting up the physical evaluation configuration
+
+2018
+: Write up evaluation and thesis
 
 # References
 <!-- empty header for citeproc references -->

@@ -1,5 +1,7 @@
 ## Baroclinic eddies
 
+<!-- TODO: mention \Delta z -->
+
 The previous two test cases were only two-dimensional, and therefore couldn't incorporate the influence of the Coriolis force. We now introduce a test case that involves a baroclinically unstable temperature front in a periodic channel with rotation. This test case was presented by @ilicak12, as the baroclinically unstable front quickly leads to vigorous eddying without either mechanical or buoyancy forcing, thus it is a closed system suitable for analysis by changes in RPE. The domain is a periodic channel \SI{160}{\kilo\metre} wide by \SI{500}{\kilo\metre} long, with a depth of \SI{1000}{\metre}. The front has a sinusoidal meridional position, defined as
 
 $$y_w(x) = y_0 - y_A \sin\left(2\pi k \frac{x}{L_x}\right),$$
@@ -27,7 +29,7 @@ In order to encourage baroclinicity, a quadratic bottom drag with drag coefficie
 
 \Cref{fig:snapshot} shows the surface temperature after the full 320 days of simulation at 1km horizontal resolution, at the lowest and highest viscosities, \SI{1}{\square\metre\per\second} and \SI{200}{\square\metre\per\second}, respectively. In the low viscosity case, strong spurious mixing has occurred, but finer-scale features are also evident. Conversely, the range of intermediate temperatures is significantly less with a higher horizontal viscosity, but the eddies are much weaker due to the momentum damping by the viscosity.
 
-![\label{fig:drpe} rate of RPE change for all experiments. Data from MPAS-O, POP, MITGCM and MOM come from @petersen15 and @ilicak12. MOM6 using the default PLM tracer advection scheme is shown in magenta circles, with the alternate PPM:H3 scheme shown in magenta triangles at \SIlist{10;4}{\kilo\metre} resolution.](plots/eddies_drpe.pdf)
+![\label{fig:drpe} Rate of RPE change for all experiments. Data from MPAS-O, POP, MITGCM and MOM come from @petersen15 and @ilicak12. MOM6 using the default PLM tracer advection scheme is shown in magenta circles, with the alternate PPM:H3 scheme shown in magenta triangles at \SIlist{10;4}{\kilo\metre} resolution.](plots/eddies_drpe.pdf)
 
 \Cref{fig:drpe} shows the rate of RPE change across all tested models for \SIlist{10;4;1}{\kilo\metre} horizontal resolution, respectively. In the 10km experiment, the two available tracer advection schemes were used, PLM shown in magenta circles and the higher-order PPM:H3 scheme in magenta triangles. In the spurious mixing saturation regime of $\mathrm{Re}_\Delta > 10$, MOM6 with the PLM scheme plateaus at a very similar level to MOM and POP. As expected, the PPM:H3 scheme exhibits slightly lower spurious mixing, especially at the lowest grid Reynolds number. However, in the saturation regime the spurious mixing continues to rise slightly with increasing grid Reynolds number, exceeding the PLM scheme.
 

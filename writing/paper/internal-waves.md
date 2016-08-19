@@ -1,5 +1,7 @@
 ## Internal Waves
 
+<!-- TODO: mention horizontal viscosities -->
+
 The breaking of internal waves in the ocean is a significant source of abyssal mixing, and thus is an important process contributing to the abyssal ocean circulation [@nikurashin13]. Spurious mixing due to internal waves depends strongly on the choice of vertical coordinate. The propagation of linear internal waves produces vertical mixing in ocean models with a fixed vertical grid such as z-star [@gouillon10]. However, other coordinates, such as z-tilde, permit layers to move with the waves, thereby restricting transport between layers and reducing spurious mixing.
 
 ![\label{fig:snapshot} Snapshot of the internal wave initial condition (top), and state after 100 days. Temperature (\si{\celsius}) is shown in colours.](plots/internal_waves_snapshot_0.01.pdf)

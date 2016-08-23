@@ -1,7 +1,7 @@
 ---
 title: The Orientation of Spurious Mixing
 author: Angus Gibson
-date: August 18, 2016
+date: August 19, 2016
 header-includes:
 - \usepackage[font=footnotesize,labelfont=bf]{caption}
 - \usepackage[list-units=single]{siunitx}

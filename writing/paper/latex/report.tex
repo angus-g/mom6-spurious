@@ -1,10 +1,16 @@
 \documentclass[review,authoryear]{elsarticle}
 
 \usepackage[list-units=single]{siunitx}
-\usepackage{hyperref}
+\usepackage{cleveref}
 \usepackage{lineno}
+\usepackage{amsmath}
+\usepackage{graphicx}
 
 \modulolinenumbers[5]
+
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
 
 \journal{Ocean Modelling}
 \bibliographystyle{model2-names}
@@ -30,6 +36,9 @@
 \include{lock-exchange}
 \include{internal-waves}
 \include{baroclinic-eddies}
+
+\include{discussion}
+\include{conclusions}
 
 \section*{References}
 

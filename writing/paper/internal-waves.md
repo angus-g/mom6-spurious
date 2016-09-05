@@ -1,6 +1,6 @@
 ## Internal Waves
 
-<!-- TODO: mention horizontal viscosities -->
+<!-- TODO: mention horizontal viscosities, energy? amplitude spectrum? -->
 
 The breaking of nonlinear internal waves in the ocean is a significant source of abyssal mixing, and thus is an important process contributing to the abyssal ocean circulation [@nikurashin13].
 
@@ -9,6 +9,8 @@ The breaking of nonlinear internal waves in the ocean is a significant source of
 Spurious mixing due to internal waves depends strongly on the choice of vertical coordinate. The propagation of linear internal waves produces vertical mixing in ocean models with a fixed vertical grid such as z-star [@gouillon10]. However, other coordinates, such as z-tilde, permit layers to move with the waves, thereby restricting transport between layers and reducing spurious mixing.
 
 ![\label{fig:waves-snapshot} Snapshot of the internal wave initial condition (top), and state after 100 days (bottom). Temperature (\si{\celsius}) is shown in colours.](plots/internal_waves_snapshot_0.01.pdf)
+
+- show z-tilde and rho coords as well (4-panel)
 
 This test case is configured as presented by @ilicak12. It consists of a linearly stratified background temperature distribution in a domain \SI{500}{\metre} deep and \SI{250}{\kilo\metre} wide (\cref{fig:waves-snapshot}). Horizontal grid spacing is \SI{5}{\kilo\metre}, and the vertical grid spacing $\Delta z$ is \SI{25}{\metre}. A wave perturbation is superimposed, lifting the isopycnals in the centre of the domain to set up counter-propagating internal waves towards the left and right horizontal boundaries. The background temperature distribution is defined as
 

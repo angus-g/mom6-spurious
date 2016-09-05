@@ -3,6 +3,7 @@
 One of the myriad uses of ocean models is in developing ocean heat uptake estimates and overturning circulation predictions [@armour16]. Additionally, the overturning circulation itself affects the wider climate, which manifests when ocean models are used as a component of coupled climate simulations. The problems of ocean heat uptake and overturning circulation are both strongly defined by the density structure of the ocean, which is modified by mixing. For example, mixing at depth controls the abyssal overturning cell that constitutes part of the meridional overturning circulation [@mashayek15]. As a result, models may be unable to accurately constrain the abyssal overturning if the magnitude of spurious diapycnal mixing cannot be completely controlled.
 
 - define "spurious diapycnal mixing"
+- Cat's paper says surface mixing is important too (wrt "mixing at depth")
 
 Numerical ocean models are governed by approximations of the incompressible Navier-Stokes equations for momentum, also known as the primitive equations [@griffies04]. In these models, the vertical balance is hydrostatic, where the vertical pressure gradient force is balanced by the gravitational force. The mixing of momentum by the unresolved eddy field is parameterised by an explicit eddy viscosity term. Potential density of water parcels is controlled by salinity and potential temperature through an equation of state. These tracers are advected by the explicitly resolved eddy field, and mixed by the unresolved eddy field through a parameterised eddy diffusion term.
 

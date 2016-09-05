@@ -39,4 +39,9 @@ When the horizontal resolution is decreased to 4km, MOM6 exhibits slightly great
 
 ![\label{fig:eddies-drpesplit} Spurious mixing contributions in MOM6 for each horizontal resolution across the range of horizontal viscosities. \SI{1}{\kilo\metre} shown with triangles, \SI{4}{\kilo\metre} with squares and \SI{10}{\kilo\metre} with circles. As resolution increases, the relative contribution of the vertical component also increases, to approximately equal the horizontal component at \SI{1}{\kilo\metre}.](plots/eddies_drpe_split.pdf)
 
+- make sure legend is fixed
+
 We consider the orientation of spurious mixing at each of the tested horizontal resolutions in \cref{fig:eddies-drpesplit}. As horizontal resolution increases (grid spacing decreases), the fraction of spurious mixing by regridding/remapping increases. Indeed, at \SI{1}{\kilo\metre} horizontal resolution, horizontal tracer advection and regridding/remapping contribute approximately equally to the total spurious mixing. The reasons for this are likely twofold: firstly, for the same domain size at higher resolution, there are simply more water columns in which regridding/remapping must take place. Secondly, fine-scale features in the flow may cause more interaction between adjacent water columns, or more rapid changes in the Lagrangian vertical grid which require correction by regridding/remapping. This result highlights the importance of further refinement of regridding/remapping schemes and vertical coordinates, particularly as models are run at increasingly higher resolution.
+
+
+- "anti-spurious mixing"

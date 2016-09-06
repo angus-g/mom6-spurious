@@ -1,9 +1,8 @@
 \section{Introduction}
 
-One of the myriad uses of ocean models is in developing ocean heat uptake estimates and overturning circulation predictions \citep{armour16}. Additionally, the overturning circulation itself affects the wider climate, which manifests when ocean models are used as a component of coupled climate simulations. The problems of ocean heat uptake and overturning circulation are both strongly defined by the density structure of the ocean, which is modified by mixing. For example, mixing at depth controls the abyssal overturning cell that constitutes part of the meridional overturning circulation \citep{mashayek15}. As a result, models may be unable to accurately constrain the abyssal overturning if the magnitude of spurious diapycnal mixing cannot be completely controlled.
+One of the myriad uses of ocean models is in developing ocean heat uptake estimates and overturning circulation predictions \citep{armour16}. Additionally, the overturning circulation itself affects the wider climate, which manifests when ocean models are used as a component of coupled climate simulations. The problems of ocean heat uptake and overturning circulation are both strongly defined by the density structure of the ocean, which is modified by mixing. For example, mixing at depth controls the abyssal overturning cell that constitutes part of the meridional overturning circulation \citep{mashayek15}. Additionally, the time scale of adjustment of overturning circulation toward equilibrium depends primarily on mixing near the surface \citep{vreugdenhil15}. As a result, models may be unable to accurately constrain the abyssal overturning if the magnitude of spurious diapycnal mixing cannot be completely controlled.
 
-- define "spurious diapycnal mixing"
-- Cat's paper says surface mixing is important too (wrt "mixing at depth")
+% TODO define "spurious diapycnal mixing" here?
 
 Numerical ocean models are governed by approximations of the incompressible Navier-Stokes equations for momentum, also known as the primitive equations \citep{griffies04}. In these models, the vertical balance is hydrostatic, where the vertical pressure gradient force is balanced by the gravitational force. The mixing of momentum by the unresolved eddy field is parameterised by an explicit eddy viscosity term. Potential density of water parcels is controlled by salinity and potential temperature through an equation of state. These tracers are advected by the explicitly resolved eddy field, and mixed by the unresolved eddy field through a parameterised eddy diffusion term.
 
@@ -11,7 +10,7 @@ To solve the primitive equations, ocean models implement some kind of discretisa
 
 Mixing processes create fluxes of tracer between grid cells. In ocean models, mixing has two main causes, physical and numerical. A small fraction of physical mixing comes from molecular diffusion. The rest comes from advection by numerically unresolved eddies, which is parameterised as a diffusive process. On the other hand, numerical mixing arises from the discretisations and algorithms used by the ocean model in implementing the governing equations. Numerical mixing is also known as spurious mixing and has no physical basis. For example, first-order upwind advection has numerical diffusion as the leading error term \citep{gentry66}.
 
-- models don't implement molecular diffusion, that's parameterised
+% TODO reword, as models don't implement molecular diffusion, that's parameterised
 
 Spurious mixing is undesirable in ocean models. It is unphysical, it may add to the imposed and parameterised mixing to an unknown extent and it is difficult to diagnose. Spurious mixing affects numerical experiments which are contingent on the density structure of the ocean. Ocean heat uptake or overturning circulation strength in such experiments may be biased. One of the considerations in model development and configuration is thus to ensure spurious mixing is minimised.
 
@@ -41,7 +40,7 @@ A simpler diagnostic of spurious mixing is simply to observe its effects on the 
 
 where $U$ is the characteristic horizontal velocity scale, $\Delta x$ is the horizontal grid spacing and $\nu_h$ is the horizontal viscosity coefficient. For the dissipation of spurious grid-scale noise in the velocity field, the lateral grid Reynolds number should be less than 2 \citep[p.~410]{griffies04}. By varying the horizontal viscosity, \citet{ilicak12} showed that spurious mixing increases with the lateral grid Reynolds number up until saturation at approximately $\mathrm{Re}_\Delta = 10$. This demonstrates that the momentum closure must be chosen such that it reduces spurious grid-scale noise, which causes a saturation in the spurious mixing.
 
-- saturation due to flux limiter, otherwise gridscale noise would increase with grid Re?
+% NOTE saturation due to flux limiter, otherwise gridscale noise would increase with grid Re?
 
 To look at the performance of a model with an ALE scheme, \citet{petersen15} extended the study of Ilicak et al. In addition to the z-star and isopycnal coordinates, three additional vertical coordinates were used to demonstrate the ALE in the MPAS-Ocean (hereafter referred to as MPAS-O) model: the terrain-following sigma coordinate, z-level, and z-tilde \citep{leclair11}. To compare to another model with a z-level vertical coordinate, POP was also added to the suite of models.
 

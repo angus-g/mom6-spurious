@@ -2,21 +2,22 @@
 
 \usepackage[list-units=single]{siunitx}
 \usepackage{cleveref}
-\usepackage{lineno}
 \usepackage{amsmath}
 \usepackage{graphicx}
 
-\modulolinenumbers[5]
+\usepackage[modulo]{lineno}
 
 \makeatletter
 \g@addto@macro\@floatboxreset\centering
 \makeatother
 
 \journal{Ocean Modelling}
+% Harvard-style author-year bibliography
 \bibliographystyle{model2-names}
 
 \begin{document}
 
+\begin{frontmatter}
 \title{The orientation of spurious mixing}
 \author[anu]{Angus~H.~Gibson}
 \ead{angus.gibson@anu.edu.au}
@@ -26,8 +27,10 @@
 \address[unsw]{School of Physical, Environmental and Mathematical Sciences, University of New South Wales at the Australian Defence Force Academy, Canberra, Australian Capital Territory, Australia}
 
 \include{abstract}
+\end{frontmatter}
 
-\maketitle
+% start numbering lines from here
+\linenumbers
 
 \include{introduction}
 \include{theory}

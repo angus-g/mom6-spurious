@@ -3,13 +3,13 @@
 % TODO mention $\Delta z$ for this case
 
 The previous two test cases were only two-dimensional, and therefore couldn't incorporate the influence of the Coriolis force. We now introduce a test case that involves a baroclinically unstable temperature front in a periodic channel with rotation. This test case was presented by \citet{ilicak12}, as the baroclinically unstable front quickly leads to vigorous eddying without either mechanical or buoyancy forcing, thus it is a closed system suitable for analysis by changes in RPE. The domain is a periodic channel in the x direction, \SI{160}{\kilo\metre} wide by \SI{500}{\kilo\metre} long, with a depth of \SI{1000}{\metre} (\cref{fig:eddies-snapshot_ic}). The front has a sinusoidal initial meridional position, defined as
-
+%
 \begin{equation}
   y_w(x) = y_0 - y_A \sin\left(2\pi k \frac{x}{L_x}\right),
 \end{equation}
-
+%
 where $y_A = \SI{40}{\kilo\metre}$ is the amplitude, $y_0 = \SI{250}{\kilo\metre}$ is the centre of the domain, $k = 3$ and $L_x = \SI{160}{\kilo\metre}$ ensure that three wavelengths span the width of the domain. The initial temperature distribution in the domain is given by
-
+%
 \begin{equation}
   \Theta(x,y,z) = \begin{cases}
     \Theta_0(z) & y \ge y_w(x) + \Delta y, \\
@@ -17,9 +17,9 @@ where $y_A = \SI{40}{\kilo\metre}$ is the amplitude, $y_0 = \SI{250}{\kilo\metre
     \Theta_0(z) - \Delta \Theta & y \le y_w(x),
   \end{cases}
 \end{equation}
-
+%
 where $\Theta_0(z)$ is a linearly stratified background between \SI{10.1}{\celsius} and \SI{13.1}{\celsius}, $\Delta y = \SI{40}{\kilo\metre}$ is the width of the front and $\Delta \Theta = \SI{1.2}{\celsius}$ is the temperature difference across the front. Additionally, a temperature perturbation is added to the crest of one of the waves to promote instability. The region over which the perturbation is added is bounded by $x_2 \le x \le x_3$ and $y'_w - \Delta y / 2 \le y \le y'_w + \Delta y / 2$, where
-
+%
 \begin{equation}
   y'_w(x) = y_0 - \frac{y_A}{2}\sin\left(\pi \frac{x - x_2}{x_3 - x_2}\right).
 \end{equation}
@@ -35,11 +35,11 @@ where $\Theta_0(z)$ is a linearly stratified background between \SI{10.1}{\celsi
 \end{figure}
 
 The perturbation itself is defined by the temperature anomaly
-
+%
 \begin{equation}
   \Theta'(x,y) = \Delta\Theta'\left(1 - \frac{y - y'_w(x)}{\Delta y / 2}\right).
 \end{equation}
-
+%
 In order to encourage baroclinicity, a quadratic bottom drag with drag coefficient $C_D = 0.01$ is used. Experiments were performed at horizontal resolutions of \SIlist{1;4;10}{\kilo\metre}. For each choice of horizontal resolution, the horizontal viscosities $\nu_h$ were \SIlist{1;5;10;20;200}{\square\metre\per\second}, giving a range of lateral grid Reynolds numbers from $O(1)$ at the highest viscosity, through to $O(1000)$ for the lowest viscosity.
 
 \Cref{fig:eddies-snapshot} shows the surface temperature after the full 320 days of simulation at 1km horizontal resolution, at the lowest and highest viscosities, \SI{1}{\square\metre\per\second} and \SI{200}{\square\metre\per\second}, respectively. In the low viscosity case, strong spurious mixing has occurred, but finer-scale features are also evident. Conversely, the range of intermediate temperatures is significantly less with a higher horizontal viscosity, but the eddies are much weaker due to the momentum damping by the viscosity.

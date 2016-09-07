@@ -33,11 +33,11 @@ Substituting the second-order moment scheme for an arbitrary choice of horizonta
 A simpler diagnostic of spurious mixing is simply to observe its effects on the reference potential energy RPE, \citep{winters95}. This gives only timeseries data (no localised information), but allows for ready comparison across models for the same physical configuration. \citet{ilicak12} used the rate of change of RPE in analysing the role of momentum closure between different models (GOLD, MITGCM, MOM and ROMS). Comparisons were performed across a suite of test cases intended to stress different physical phenomena: a lock exchange, downslope flow, internal gravity waves, baroclinic eddies, and a global spindown.
 
 \citet{ilicak12} studied the dependence on the lateral grid Reynolds number
-
+%
 \begin{equation}
   \mathrm{Re}_\Delta = \frac{U\Delta x}{\nu_h},
 \end{equation}
-
+%
 where $U$ is the characteristic horizontal velocity scale, $\Delta x$ is the horizontal grid spacing and $\nu_h$ is the horizontal viscosity coefficient. For the dissipation of spurious grid-scale noise in the velocity field, the lateral grid Reynolds number should be less than 2 \citep[p.~410]{griffies04}. By varying the horizontal viscosity, \citet{ilicak12} showed that spurious mixing increases with the lateral grid Reynolds number up until saturation at approximately $\mathrm{Re}_\Delta = 10$. This demonstrates that the momentum closure must be chosen such that it reduces spurious grid-scale noise, which causes a saturation in the spurious mixing.
 
 % NOTE saturation due to flux limiter, otherwise gridscale noise would increase with grid Re?

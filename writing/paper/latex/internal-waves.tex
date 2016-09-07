@@ -14,16 +14,16 @@ Spurious mixing due to internal waves depends strongly on the choice of vertical
 % TODO show z-tilde and rho coords as well (4-panel)
 
 This test case is configured as presented by \citet{ilicak12}. It consists of a linearly stratified background temperature distribution in a domain \SI{500}{\metre} deep and \SI{250}{\kilo\metre} wide (\cref{fig:waves-snapshot}). Horizontal grid spacing is \SI{5}{\kilo\metre}, and the vertical grid spacing $\Delta z$ is \SI{25}{\metre}. A wave perturbation is superimposed, lifting the isopycnals in the centre of the domain to set up counter-propagating internal waves towards the left and right horizontal boundaries. The background temperature distribution is defined as
-
+%
 \begin{equation}
   \Theta_0(z) = \Theta_\text{bot} + (\Theta_\text{top} - \Theta_\text{bot})\frac{z_\text{bot} - z}{z_\text{bot}},
 \end{equation}
-
+%
 where $\Theta_\text{bot} = 10.1^\circ\mathrm{C}$, $\Theta_\text{top} = \SI{20.1}{\celsius}$, and $z_\text{bot} = \SI{-487.5}{\metre}$. The wave perturbation,
-
+%
 % TODO mention coordinate convention on z (z coordinate relative to surface)
 % TODO explain discrepancy in $z_\text{bot}$ due to staggered grid (as in Petersen)
-
+%
 \begin{equation}
   \Theta'(x,z) = -A\cos\left(\frac{\pi}{2L}(x - x_0)\right) \sin\left(\pi\frac{z + \Delta z/2}{z_\text{bot} + \Delta z/2}\right),
 \end{equation}

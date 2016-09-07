@@ -1,11 +1,11 @@
 \section{Theory}
 \subsection{Reference potential energy}
 A measurement of spurious mixing with a physical basis comes from the reference potential energy \citep[known also as background potential energy][]{winters95}. This is the lowest attainable potential energy of a given fluid, where there is no energy available for motion. To calculate this state, the fluid must be adiabatically re-sorted to a stable stratification, where every fluid parcel is spread laterally across the entire domain. The sum of the reference potential energy and the available potential energy (APE) gives the total potential energy in the system. Mathematically, the RPE is expressed as
-
+%
 \begin{equation}
   \mathrm{RPE} = g \int_\Omega z \rho^*(z)\,\mathrm dV,
 \end{equation}
-
+%
 where $g$ is the gravitational constant; $z$ is the height, positive upward; $\Omega$ is the domain; $V$ is the volume; and $\rho^*$ is the adiabatically re-sorted density profile, known as the reference density. The reference density is well-defined when an incompressible equation of state is used. However, when compressibility is present in the equation of state, a fluid parcel's density depends on its depth (more precisely, its hydrostatic pressure), which changes when the domain is re-sorted. A naive resorting of fluid parcels may therefore not be stably stratified due to this compressibility effect.
 
 % NOTE using *potential* density would fix this?
@@ -41,24 +41,24 @@ From a physical viewpoint, we expect RPE to be an increasing quantity with time.
 \end{figure}
 
 \Cref{fig:schematic} shows a simple two-cell domain under regridding/remapping. The bottom cell has a mean tracer concentration of $\phi_1$ and thickness $h_1$. Similarly, the top cell has a mean tracer concentration of $\phi_2$ and thickness $h_2$. Regridding moves the interface between the cells from its initial position at $z = h_1$ to the dashed line at $z = h_1 - \Delta h$, and remapping mixes the integrated quantity of tracer $\phi'$ from the bottom cell to the top cell. Initially, the potential energy of the domain is
-
+%
 \begin{equation}
   PE_i = \frac{\phi_1 h_1 h_1}{2} + \phi_2 h_2\left(h_1 + \frac{h_2}{2}\right).
 \end{equation}
 
 After remapping, the potential energy becomes
-
+%
 \begin{equation}
   \begin{split}
     PE_f &= \left(\phi_1 h_1 - \phi'\right)\frac{h_1 - \Delta h}{2} \\
     &+ \left(\phi_2 h_2 + \phi'\right)\left(h_1 - \Delta h + \frac{h_2 + \Delta h}{2}\right).
   \end{split}
 \end{equation}
-
+%
 Taking the difference between the final and initial potential energy gives the RPE change due to regridding/remapping,
-
+%
 \begin{equation}
   PE_f - PE_i = \frac{\phi'\left(h_1 + h_2\right)}{2} - \frac{\Delta h\left(\phi_1 h_1 + \phi_2 h_2\right)}{2}.
 \end{equation}
-
+%
 With the condition that $\phi_1 > \phi_2$, it is possible for $PE_f - PE_i < 0$ when the remapping is higher order than piecewise constant (PCM). PCM is the lowest order reconstruction, and gives $\phi' = \phi_1 \Delta h$, thus $PE_f - PE_i \ge 0$.

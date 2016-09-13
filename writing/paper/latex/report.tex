@@ -3,10 +3,13 @@
 \usepackage[list-units=single]{siunitx}
 \usepackage{cleveref}
 \usepackage{amsmath}
+\usepackage[modulo]{lineno}
 \usepackage{graphicx}
 
-\usepackage[modulo]{lineno}
+% set default graphics width
+\setkeys{Gin}{width=0.5\textwidth}
 
+% make floats centering by default
 \makeatletter
 \g@addto@macro\@floatboxreset\centering
 \makeatother
@@ -26,23 +29,23 @@
 \address[anu]{Research School of Earth Sciences, Australian National University, Canberra, Australian Capital Territory, Australia}
 \address[unsw]{School of Physical, Environmental and Mathematical Sciences, University of New South Wales at the Australian Defence Force Academy, Canberra, Australian Capital Territory, Australia}
 
-\include{abstract}
+\input{abstract}
 \end{frontmatter}
 
 % start numbering lines from here
 \linenumbers
 
-\include{introduction}
-\include{theory}
+\input{introduction}
+\input{theory}
 
 \section{Results}
-\include{lock-exchange}
-\include{internal-waves}
-\include{baroclinic-eddies}
+\input{lock-exchange}
+\input{internal-waves}
+\input{baroclinic-eddies}
 
-\include{discussion}
+\input{discussion}
 % we can probably do everything we need with just a discussion section
-%\include{conclusions}
+%\input{conclusions}
 
 \nolinenumbers
 

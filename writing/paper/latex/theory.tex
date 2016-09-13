@@ -27,9 +27,7 @@ The RPE contributions must be carefully calculated so that they include only inf
 % - Kahan addition will control loss of precision in summing subtracted quantity over cells
 % - what's the criterion for "sufficient" number of samples?
 
-Previous analyses of spurious mixing through changes in RPE have only used a timeseries of RPE taken from a single stage in a timestep. This means that spurious mixing is only diagnosed for the model as a whole, and can't be attributed to any specific algorithm in the model. Our technique of separating RPE contributions allows us to address the interplay of different components, such as the order of advection scheme chosen, the order of accuracy of vertical reconstruction used for remapping, and the specific impact of the choice of vertical coordinate. Determining the dominant orientation of spurious mixing is also important because of the anisotropy of horizontal and vertical coordinates in ocean models. Some component of the horizontal spurious mixing may be diapycnal in the presence of sloping isopycnals, and therefore manifests in an RPE change when a linear equation of state is used. Conversely, spurious mixing in the vertical direction, due to regridding/remapping, will directly affect the vertical profile of density *(and hence RPE)*.
-
-% TODO be clear that RPE changes with sloping isopycnals regardless of equation of state
+Previous analyses of spurious mixing through changes in RPE have only used a timeseries of RPE taken from a single stage in a timestep. This means that spurious mixing is only diagnosed for the model as a whole, and can't be attributed to any specific algorithm in the model. Our technique of separating RPE contributions allows us to address the interplay of different components, such as the order of advection scheme chosen, the order of accuracy of vertical reconstruction used for remapping, and the specific impact of the choice of vertical coordinate. Determining the dominant orientation of spurious mixing is also important because of the anisotropy of horizontal and vertical coordinates in ocean models. Some component of the horizontal spurious mixing may be diapycnal in the presence of sloping isopycnals, and therefore manifests in an RPE change even when a linear equation of state is used. Conversely, spurious mixing in the vertical direction, due to regridding/remapping, will directly affect the vertical profile of density and hence RPE.
 
 From a physical viewpoint, we expect RPE to be an increasing quantity with time. However, we will see that the vertical process of regridding/remapping may cause RPE to decrease in some cases. We illustrate a simple example that demonstrates how the combination of regridding/remapping may create a decrease in total potential energy. For a single column case, this is equivalent to the RPE, assuming no density inversions.
 
@@ -40,25 +38,30 @@ From a physical viewpoint, we expect RPE to be an increasing quantity with time.
   \caption{\label{fig:schematic} A schematic demonstrating the ability for regridding/remapping to cause a decrease in RPE}
 \end{figure}
 
-\Cref{fig:schematic} shows a simple two-cell domain under regridding/remapping. The bottom cell has a mean tracer concentration of $\phi_1$ and thickness $h_1$. Similarly, the top cell has a mean tracer concentration of $\phi_2$ and thickness $h_2$. Regridding moves the interface between the cells from its initial position at $z = h_1$ to the dashed line at $z = h_1 - \Delta h$, and remapping mixes the integrated quantity of tracer $\phi'$ from the bottom cell to the top cell. Initially, the potential energy of the domain is
+% TODO mention that the energy calculation only uses the final cell mean
+% - we assume that the mean is at the cell centre (for the $z$ term)
+
+\Cref{fig:schematic} shows a simple two-cell domain under regridding/remapping. The bottom cell has a mean tracer concentration of $\overline\phi_1$ and thickness $h_1$. Similarly, the top cell has a mean tracer concentration of $\overline\phi_2$ and thickness $h_2$. Regridding moves the interface between the cells from its initial position at $z = h_1$ to the dashed line at $z = h_1 - \Delta h$, and remapping mixes the integrated quantity of tracer $\phi'$ from the bottom cell to the top cell. Initially, the potential energy of the domain, per unit area is
 %
 \begin{equation}
-  PE_i = \frac{\phi_1 h_1 h_1}{2} + \phi_2 h_2\left(h_1 + \frac{h_2}{2}\right).
+  PE_i = \frac{\overline\phi_1 h_1 h_1}{2} + \overline\phi_2 h_2\left(h_1 + \frac{h_2}{2}\right).
 \end{equation}
 
 After remapping, the potential energy becomes
 %
 \begin{equation}
   \begin{split}
-    PE_f &= \left(\phi_1 h_1 - \phi'\right)\frac{h_1 - \Delta h}{2} \\
-    &+ \left(\phi_2 h_2 + \phi'\right)\left(h_1 - \Delta h + \frac{h_2 + \Delta h}{2}\right).
+    PE_f &= \left(\overline\phi_1 h_1 - \phi'\right)\frac{h_1 - \Delta h}{2} \\
+    &+ \left(\overline\phi_2 h_2 + \phi'\right)\left(h_1 - \Delta h + \frac{h_2 + \Delta h}{2}\right).
   \end{split}
 \end{equation}
 %
-Taking the difference between the final and initial potential energy gives the RPE change due to regridding/remapping,
+% TODO link the PE change to the RPE (this simple example is stably stratified)
+Taking the difference between the final and initial potential energy gives the change due to regridding/remapping
 %
 \begin{equation}
-  PE_f - PE_i = \frac{\phi'\left(h_1 + h_2\right)}{2} - \frac{\Delta h\left(\phi_1 h_1 + \phi_2 h_2\right)}{2}.
+  PE_f - PE_i = \frac{\phi'\left(h_1 + h_2\right)}{2} - \frac{\Delta h\left(\overline\phi_1 h_1 + \overline\phi_2 h_2\right)}{2}.
 \end{equation}
 %
-With the condition that $\phi_1 > \phi_2$, it is possible for $PE_f - PE_i < 0$ when the remapping is higher order than piecewise constant (PCM). PCM is the lowest order reconstruction, and gives $\phi' = \phi_1 \Delta h$, thus $PE_f - PE_i \ge 0$.
+% TODO specific example where the change is negative
+With the condition that $\overline\phi_1 > \overline\phi_2$, it is possible for $PE_f - PE_i < 0$ when the remapping is higher order than piecewise constant (PCM). PCM is the lowest order reconstruction, and gives $\phi' = \overline\phi_1 \Delta h$, thus $PE_f - PE_i \ge 0$.

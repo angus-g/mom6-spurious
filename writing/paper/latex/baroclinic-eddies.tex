@@ -1,8 +1,6 @@
 \subsection{Baroclinic eddies}
 
-% TODO mention $\Delta z$ for this case
-
-The previous two test cases were only two-dimensional, and therefore couldn't incorporate the influence of the Coriolis force. We now introduce a test case that involves a baroclinically unstable temperature front in a periodic channel with rotation. This test case was presented by \citet{ilicak12}, as the baroclinically unstable front quickly leads to vigorous eddying without either mechanical or buoyancy forcing, thus it is a closed system suitable for analysis by changes in RPE. The domain is a periodic channel in the x direction, \SI{160}{\kilo\metre} wide by \SI{500}{\kilo\metre} long, with a depth of \SI{1000}{\metre} (\cref{fig:eddies-snapshot_ic}). The front has a sinusoidal initial meridional position, defined as
+The previous two test cases were only two-dimensional, and therefore couldn't incorporate the influence of the Coriolis force. We now introduce a test case that involves a baroclinically unstable temperature front in a periodic channel with rotation. This test case was presented by \citet{ilicak12}, as the baroclinically unstable front quickly leads to vigorous eddying without either mechanical or buoyancy forcing, thus it is a closed system suitable for analysis by changes in RPE. The domain is a periodic channel in the x direction, \SI{160}{\kilo\metre} wide by \SI{500}{\kilo\metre} long, with a depth of \SI{1000}{\metre} at vertical resolution $\Delta z = \SI{50}{\metre}$ (\cref{fig:eddies-snapshot_ic}). The front has a sinusoidal initial meridional position, defined as
 %
 \begin{equation}
   y_w(x) = y_0 - y_A \sin\left(2\pi k \frac{x}{L_x}\right),
@@ -18,7 +16,7 @@ where $y_A = \SI{40}{\kilo\metre}$ is the amplitude, $y_0 = \SI{250}{\kilo\metre
   \end{cases}
 \end{equation}
 %
-where $\Theta_0(z)$ is a linearly stratified background between \SI{10.1}{\celsius} and \SI{13.1}{\celsius}, $\Delta y = \SI{40}{\kilo\metre}$ is the width of the front and $\Delta \Theta = \SI{1.2}{\celsius}$ is the temperature difference across the front. Additionally, a temperature perturbation is added to the crest of one of the waves to promote instability. The region over which the perturbation is added is bounded by $x_2 \le x \le x_3$ and $y'_w - \Delta y / 2 \le y \le y'_w + \Delta y / 2$, where
+where $\Theta_0(z)$ is a linearly stratified background between \SI{10.1}{\celsius} and \SI{13.1}{\celsius}, $\Delta y = \SI{40}{\kilo\metre}$ is the width of the front and $\Delta \Theta = \SI{1.2}{\celsius}$ is the temperature difference across the front. Additionally, a temperature perturbation is added to the crest of one of the waves to promote instability. The region over which the perturbation is added is bounded by $x_2 (= \SI{110}{\kilo\metre}) \le x \le x_3 (= \SI{130}{\kilo\metre})$ and $y'_w - \Delta y / 2 \le y \le y'_w + \Delta y / 2$, where
 %
 \begin{equation}
   y'_w(x) = y_0 - \frac{y_A}{2}\sin\left(\pi \frac{x - x_2}{x_3 - x_2}\right).
@@ -45,8 +43,8 @@ In order to encourage baroclinicity, a quadratic bottom drag with drag coefficie
 \Cref{fig:eddies-snapshot} shows the surface temperature after the full 320 days of simulation at 1km horizontal resolution, at the lowest and highest viscosities, \SI{1}{\square\metre\per\second} and \SI{200}{\square\metre\per\second}, respectively. In the low viscosity case, strong spurious mixing has occurred, but finer-scale features are also evident. Conversely, the range of intermediate temperatures is significantly less with a higher horizontal viscosity, but the eddies are much weaker due to the momentum damping by the viscosity.
 
 \begin{figure}
-  \includegraphics{../plots/eddies_drpe.pdf}
-  \caption{\label{fig:eddies-drpe} Rate of RPE change for all experiments. Data from MPAS-O, POP, MITGCM and MOM come from @petersen15 and @ilicak12. MOM6 using the default PLM tracer advection scheme is shown in magenta circles, with the alternate PPM:H3 scheme shown in magenta triangles at \SIlist{10;4}{\kilo\metre} resolution.}
+  \includegraphics[width=0.8\textwidth]{../plots/eddies_drpe.pdf}
+  \caption{\label{fig:eddies-drpe} Rate of RPE change for all experiments. MITGCM and MOM results come from \citet{ilicak12}, while MPAS-O and POP results are from \citet{petersen15}. MOM6 using the default PLM tracer advection scheme is shown in magenta circles, with the alternate PPM:H3 scheme shown in magenta triangles at \SIlist{10;4}{\kilo\metre} resolution.}
 \end{figure}
 
 \Cref{fig:eddies-drpe} shows the rate of RPE change across all tested models for \SIlist{10;4;1}{\kilo\metre} horizontal resolution, respectively. In the 10km experiment, the two available tracer advection schemes were used, PLM shown in magenta circles and the higher-order PPM:H3 scheme in magenta triangles. In the spurious mixing saturation regime of $\mathrm{Re}_\Delta > 10$, MOM6 with the PLM scheme plateaus at a very similar level to MOM and POP. As expected, the PPM:H3 scheme exhibits slightly lower spurious mixing, especially at the lowest grid Reynolds number. However, in the saturation regime the spurious mixing continues to rise slightly with increasing grid Reynolds number, exceeding the PLM scheme.

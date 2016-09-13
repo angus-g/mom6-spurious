@@ -1,1 +1,14 @@
 \section{Discussion}
+% TODO expand points
+
+\subsection{Horizontal resolution}
+With increasing horizontal resolution, the fraction of spurious mixing contributed by vertical processes increases. As shown in \cref{fig:eddies-drpe}, a fourfold reduction in horizontal resolution only leads to a halving of the total magnitude of the spurious mixing rate.
+
+\subsection{Vertical resolution}
+The magnitude of spurious mixing scales approximately linearly with vertical resolution. In combination with the conclusion mentioned above, the 
+
+\subsection{Advection scheme}
+The two tracer advection schemes in MOM6, PLM and PPM:H3, don't appear to be sufficient for traditional coordinate systems. Here, tracers may vary significantly in a single layer, and the advantages of being able to solve the primitive equations in generalised vertical coordinates are lost.
+
+\subsection{Coordinate choice}
+By far the most important contribution to the magnitude of spurious mixing tested here is the choice of vertical coordinate. Generalised coordinates such as z-tilde or continuous isopycnal showed significant improvements over the ubiquitous z-star coordinate used in ocean models. However, these are not instant solutions; they require tuning to perform optimally, and additionally have more stringent stability and configuration requirements.

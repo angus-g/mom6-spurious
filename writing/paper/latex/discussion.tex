@@ -1,14 +1,27 @@
 \section{Discussion}
-% TODO expand points
+\subsection{Tracer advection scheme}
+The two tracer advection schemes currently present in MOM6, PLM and PPM:H3, don't appear to be sufficient for traditional vertical coordinate systems. For example, when using a z-star vertical coordinate tracers may vary significantly in a single horizontal layer. As MOM6 is able to solve the primitive equations in generalised vertical coordinates, there are considerations, such as the reduction of pressure gradient errors due to sloping coordinate surfaces, which aren't exploited.
+% mention other advection schemes? FCT in MPAS-O; seventh-order, Prather, etc.
 
 \subsection{Horizontal resolution}
-With increasing horizontal resolution, the fraction of spurious mixing contributed by vertical processes increases. As shown in \cref{fig:eddies-drpe}, a fourfold reduction in horizontal resolution only leads to a halving of the total magnitude of the spurious mixing rate.
+With increasing horizontal resolution, the rate of horizontal spurious mixing decreases (\cref{fig:eddies-drpe}). Given that the rate of vertical spurious mixing is approximately constant with horizontal resolution, this has the effect that the fraction of spurious mixing contributed by vertical processes increases as horizontal resolution increases.
 
 \subsection{Vertical resolution}
-The magnitude of spurious mixing scales approximately linearly with vertical resolution. In combination with the conclusion mentioned above, the 
-
-\subsection{Advection scheme}
-The two tracer advection schemes in MOM6, PLM and PPM:H3, don't appear to be sufficient for traditional coordinate systems. Here, tracers may vary significantly in a single layer, and the advantages of being able to solve the primitive equations in generalised vertical coordinates are lost.
+% NOTE vertical spurious mixing rate is inversely proportional to vertical resolution
+% maybe a higher-order effect than horizontal resolution? (careful with log scales)
 
 \subsection{Coordinate choice}
-By far the most important contribution to the magnitude of spurious mixing tested here is the choice of vertical coordinate. Generalised coordinates such as z-tilde or continuous isopycnal showed significant improvements over the ubiquitous z-star coordinate used in ocean models. However, these are not instant solutions; they require tuning to perform optimally, and additionally have more stringent stability and configuration requirements.
+By far the most important contribution to the magnitude of spurious mixing tested here is the choice of vertical coordinate. Using the internal gravity waves test case, it was shown that generalised coordinates such as z-tilde or continuous isopycnal yielded significant improvements over the ubiquitous z-star coordinate used in ocean models (\cref{fig:waves-drpe}). By analysing the orientation of spurious mixing it can be seen how the choice of vertical coordinate affects both horizontal and vertical processes within the model.
+
+When using the z-tilde vertical coordinate, there are reductions in both the vertical and horizontal components of spurious mixing. The reduction in the horizontal component comes from the homogeneity within layers, as coordinate surfaces are aligned to density surfaces. When horizontal layers become nearly-isopycnal, errors in the horizontal tracer advection scheme are reduced. % XXX more explanation here?
+
+Additionally, the vertical component of spurious mixing with z-tilde is also lower than that of z-star. The magnitude of this effect is significantly smaller than the horizontal, but is nonetheless present. Due to the relaxation timescale of the grid, the grid moves less during regridding than z-star (equivalent to z-tilde with an instant relaxation timescale). In turn, the reconstruction errors accumulated during remapping are smaller. In the limit of infinite relaxation timescale (a fully-Lagrangian grid), there is no movement during regridding, hence remapping is a null operation and there is zero vertical spurious mixing.
+
+% rho is better still -- doesn't seem like we can say much about it though?
+
+% concluding statement?
+However, these are not instant solutions; they require tuning to perform optimally, and additionally have more stringent stability and configuration requirements.
+
+\subsection{Further development/shortcomings/conclusions}
+% XXX do we need this section?
+% - we can compare the contributions of horizontal and vertical processes to spurious mixing

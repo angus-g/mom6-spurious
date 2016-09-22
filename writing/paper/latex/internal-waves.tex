@@ -25,7 +25,7 @@ is added in the region $x_0 - L < x < x_0 + L$, where $L = \SI{50}{\kilo\metre}$
 Considering the average rate of RPE change (\cref{fig:waves-drpe}), MOM6 performs well for each of the chosen vertical coordinates; z-star, z-tilde and continuous isopycnal (rho). This is likely due to its implementation as a quasi-Lagrangian ALE model. In this configuration, vertical layers are able to move freely within their column as waves pass through. During horizontal advection, there is exactly zero transport through vertical interfaces, so mixing occurs only laterally along an isopycnal layer. The vertical coordinate becomes more isopycnal with the z-tilde and rho coordinates, thus regridding causes smaller displacement of the interfaces. Subsequently, there is less vertical transport due to remapping and the overall spurious mixing is reduced.
 
 \begin{figure}
-  \includegraphics{../plots/internal_waves_drpe.pdf}
+  \includegraphics[width=0.8\textwidth]{../plots/internal_waves_drpe.pdf}
   \caption{\label{fig:waves-drpe} Averaged rate of RPE change from 10 to 100 days in internal waves test case. MITGCM and MOM results come from \citet{ilicak12}, while MPAS-O results come from \citet{petersen15}. MOM6 is shown with square markers, in magenta for z-star, green for z-tilde and red for continuous isopycnal. MOM6 performs comparably or better to models using the same vertical coordinate, and shows a significant reduction in spurious mixing with the continuous isopycnal coordinate.}
 \end{figure}
 
@@ -35,7 +35,7 @@ The implementation of the z-tilde coordinate differs between MOM6 and MPAS-O. Th
 % TODO more details in caption
 \begin{figure}
   %\includegraphics{../plots/internal_waves_drpe_split.pdf}
-  \includegraphics{../plots/internal_waves_drpe_split_abs.pdf}
+  \includegraphics[width=0.8\textwidth]{../plots/internal_waves_drpe_split_abs.pdf}
   \caption{\label{fig:waves-drpesplit} Relative contributions to spurious mixing by horizontal and vertical processes in internal waves test case. Each contribution is the fraction of the time-averaged total rate of RPE change.}
 \end{figure}
 

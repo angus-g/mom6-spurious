@@ -44,7 +44,9 @@ In order to encourage baroclinicity, a quadratic bottom drag with drag coefficie
 
 \begin{figure}
   \includegraphics[width=0.8\textwidth]{../plots/eddies_drpe.pdf}
-  \caption{\label{fig:eddies-drpe} Rate of RPE change for all experiments. MITGCM and MOM results come from \citet{ilicak12}, while MPAS-O and POP results are from \citet{petersen15}. MOM6 using the default PLM tracer advection scheme is shown in magenta circles, with the alternate PPM:H3 scheme shown in magenta triangles at \SIlist{10;4}{\kilo\metre} resolution.}
+  \caption{\label{fig:eddies-drpe} Rate of RPE change for all experiments. MITGCM and MOM results come from \citet{ilicak12}, while MPAS-O and POP results are from \citet{petersen15}. For the MOM6 results in magenta, the default vertical resolution $\Delta z = \SI{50}{\metre}$ is shown in circles. Doubled vertical resolution is shown with squares, and halved vertical resolution with triangles.}
+  % XXX old comment for advection scheme comparison
+    %MOM6 using the default PLM tracer advection scheme is shown in magenta circles, with the alternate PPM:H3 scheme shown in magenta triangles at \SIlist{10;4}{\kilo\metre} resolution.}
 \end{figure}
 
 \Cref{fig:eddies-drpe} shows the rate of RPE change across all tested models for \SIlist{10;4;1}{\kilo\metre} horizontal resolution, respectively. In the 10km experiment, the two available tracer advection schemes were used, PLM shown in magenta circles and the higher-order PPM:H3 scheme in magenta triangles. In the spurious mixing saturation regime of $\mathrm{Re}_\Delta > 10$, MOM6 with the PLM scheme plateaus at a very similar level to MOM and POP. As expected, the PPM:H3 scheme exhibits slightly lower spurious mixing, especially at the lowest grid Reynolds number. However, in the saturation regime the spurious mixing continues to rise slightly with increasing grid Reynolds number, exceeding the PLM scheme.
@@ -52,6 +54,7 @@ In order to encourage baroclinicity, a quadratic bottom drag with drag coefficie
 When the horizontal resolution is decreased to 4km, MOM6 exhibits slightly greater spurious mixing than POP across the range of experiments. At this resolution, the PPM:H3 advection scheme consistently provides a small decrease in spurious mixing as compared to the PLM scheme. However, the improvement in spurious mixing is minor, and may not be worth the extra computational cost involved in invoking the PPM:H3 advection scheme.
 
 \subsubsection{Spurious mixing orientation}
+% TODO include vertical resolution stuff here
 
 \begin{figure}
   %\includegraphics{../plots/eddies_drpe_split.pdf}
